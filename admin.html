@@ -781,6 +781,74 @@
         });
     }
     </script>
+
+
+
+
+       <style>
+    /* Fix product table scrolling */
+    #products-table-body {
+        max-height: 400px;
+        overflow-y: auto;
+        display: block;
+    }
+    
+    #products-table-body tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+    
+    /* Make table responsive on mobile */
+    @media (max-width: 768px) {
+        .products-table-container {
+            overflow-x: auto;
+        }
+        
+        .products-table {
+            min-width: 600px;
+        }
+        
+        .product-image-cell {
+            width: 80px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .btn-edit, .btn-delete {
+            width: 35px;
+            height: 35px;
+            font-size: 14px;
+        }
+    }
+    
+    /* Pagination fix */
+    .pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    
+    .page-btn {
+        padding: 8px 15px;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .page-btn.active,
+    .page-btn:hover {
+        background: var(--primary-pink);
+    }
+</style>
     <!-- JavaScript Files -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/main.js"></script>
@@ -788,3 +856,4 @@
 </body>
 
 </html>
+
