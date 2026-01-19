@@ -522,10 +522,269 @@
             </div>
         </div>
     </div>
+<!-- MOBILE MENU FOR ADMIN - FIXED VERSION -->
+<div id="admin-mobile-menu" class="admin-mobile-menu">
+    <button class="close-admin-menu">✕</button>
+    
+    <div class="admin-mobile-header">
+        <h3><i class="fas fa-user-shield"></i> Admin Panel</h3>
+    </div>
+    
+    <div class="admin-mobile-links">
+        <a href="#" data-section="dashboard" class="mobile-nav-link active">
+            <i class="fas fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+        </a>
+        <a href="#" data-section="products" class="mobile-nav-link">
+            <i class="fas fa-box"></i>
+            <span>Products</span>
+        </a>
+        <a href="#" data-section="bookings" class="mobile-nav-link">
+            <i class="fas fa-calendar-check"></i>
+            <span>Bookings</span>
+        </a>
+        <a href="#" data-section="customers" class="mobile-nav-link">
+            <i class="fas fa-users"></i>
+            <span>Customers</span>
+        </a>
+        <a href="index.html" class="mobile-nav-link">
+            <i class="fas fa-home"></i>
+            <span>View Website</span>
+        </a>
+        <a href="#" id="mobile-logout" class="mobile-nav-link">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+        </a>
+    </div>
+</div>
 
+<!-- HAMBURGER BUTTON FOR MOBILE -->
+<div class="admin-mobile-hamburger">
+    <button id="admin-hamburger-btn">
+        <i class="fas fa-bars"></i>
+    </button>
+</div>
+
+<style>
+    /* MOBILE MENU STYLES */
+    .admin-mobile-hamburger {
+        display: none;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 1000;
+    }
+    
+    #admin-hamburger-btn {
+        background: var(--gradient-primary);
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        box-shadow: var(--shadow-lg);
+    }
+    
+    .admin-mobile-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: var(--navy-dark);
+        z-index: 1002;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .admin-mobile-menu.active {
+        transform: translateX(0);
+    }
+    
+    .close-admin-menu {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: transparent;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 1003;
+    }
+    
+    .admin-mobile-header {
+        padding: 70px 20px 20px;
+        background: linear-gradient(135deg, var(--primary-pink), var(--accent-gold));
+        color: white;
+    }
+    
+    .admin-mobile-links {
+        padding: 20px;
+    }
+    
+    .mobile-nav-link {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 15px;
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-nav-link:hover,
+    .mobile-nav-link.active {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+    }
+    
+    .mobile-nav-link i {
+        width: 20px;
+        text-align: center;
+    }
+    
+    .mobile-menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1001;
+    }
+    
+    .mobile-menu-overlay.active {
+        display: block;
+    }
+    
+    /* Show on mobile only */
+    @media (max-width: 768px) {
+        .admin-mobile-hamburger {
+            display: block;
+        }
+        
+        /* Hide desktop sidebar on mobile */
+        #admin-sidebar {
+            display: none;
+        }
+        
+        /* Adjust main content */
+        .admin-main-content {
+            margin-left: 0 !important;
+            padding-top: 70px;
+        }
+    }
+</style>
+
+<script>
+    // Mobile Menu JavaScript
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburgerBtn = document.getElementById('admin-hamburger-btn');
+        const mobileMenu = document.getElementById('admin-mobile-menu');
+        const closeBtn = document.querySelector('.close-admin-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+        const overlay = document.createElement('div');
+        
+        // Create overlay
+        overlay.className = 'mobile-menu-overlay';
+        document.body.appendChild(overlay);
+        
+        // Open menu
+        hamburgerBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            overlay.classList.add('active');
+            mobileMenu.style.display = 'block';
+        });
+        
+        // Close menu
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            overlay.classList.remove('active');
+            setTimeout(() => {
+                mobileMenu.style.display = 'none';
+            }, 300);
+        }
+        
+        closeBtn.addEventListener('click', closeMobileMenu);
+        overlay.addEventListener('click', closeMobileMenu);
+        
+        // Mobile navigation
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') {
+                    e.preventDefault();
+                    const section = this.getAttribute('data-section');
+                    
+                    // Update active link
+                    mobileLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Switch section (use your existing function)
+                    switchAdminSection(section);
+                    
+                    // Close menu
+                    closeMobileMenu();
+                }
+            });
+        });
+        
+        // Logout
+        document.getElementById('mobile-logout').addEventListener('click', function(e) {
+            e.preventDefault();
+            sessionStorage.removeItem('admin_logged_in');
+            window.location.href = 'index.html';
+        });
+    });
+    
+    // Function to switch sections (add to your existing code if not present)
+    function switchAdminSection(section) {
+        const sections = document.querySelectorAll('.admin-section');
+        const navLinks = document.querySelectorAll('.sidebar-nav a[data-section]');
+        
+        // Hide all sections
+        sections.forEach(sec => sec.classList.remove('active'));
+        
+        // Show selected section
+        const targetSection = document.getElementById(`${section}-section`);
+        if (targetSection) {
+            targetSection.classList.add('active');
+            
+            // Update page title
+            document.getElementById('page-title').textContent = 
+                section === 'dashboard' ? 'Dashboard' :
+                section === 'products' ? 'Products' :
+                section === 'bookings' ? 'Bookings' :
+                section === 'customers' ? 'Customers' : 'Dashboard';
+            
+            // If switching to products, refresh the table
+            if (section === 'products') {
+                loadProductsTable();
+            }
+        }
+        
+        // Update desktop nav too
+        navLinks.forEach(link => {
+            if (link.getAttribute('data-section') === section) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+    </script>
     <!-- JavaScript Files -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/main.js"></script>
     <script src="js/admin-dashboard.js"></script>
 </body>
+
 </html>
