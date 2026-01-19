@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlamourGlow Salon | Luxury Beauty Experience</title>
+    <meta name="description" content="Premium beauty salon with expert hair, makeup, skincare, and nail services. Book your transformation today!">
+    
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/index-styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/lipstick.png">
+</head>
+<body>
+    <!-- Background Animation Elements -->
+    <div class="background-animation">
+        <!-- Floating Clouds -->
+        <div class="cloud cloud-1" style="background-image: url('https://cdn-icons-png.flaticon.com/512/3208/3208720.png')"></div>
+        <div class="cloud cloud-2" style="background-image: url('https://cdn-icons-png.flaticon.com/512/3208/3208720.png')"></div>
+        <div class="cloud cloud-3" style="background-image: url('https://cdn-icons-png.flaticon.com/512/3208/3208720.png')"></div>
+        
+        <!-- Floating Beauty Icons -->
+        <div class="floating-icon icon-1"><i class="fas fa-spa"></i></div>
+        <div class="floating-icon icon-2"><i class="fas fa-cut"></i></div>
+        <div class="floating-icon icon-3"><i class="fas fa-palette"></i></div>
+        <div class="floating-icon icon-4"><i class="fas fa-hand-sparkles"></i></div>
+        <div class="floating-icon icon-5"><i class="fas fa-heart"></i></div>
+        <div class="floating-icon icon-6"><i class="fas fa-magic"></i></div>
+        <div class="floating-icon icon-7"><i class="fas fa-star"></i></div>
+        <div class="floating-icon icon-8"><i class="fas fa-crown"></i></div>
+        
+        <!-- Animated Bubbles -->
+        <div class="bubble bubble-1"></div>
+        <div class="bubble bubble-2"></div>
+        <div class="bubble bubble-3"></div>
+        <div class="bubble bubble-4"></div>
+        <div class="bubble bubble-5"></div>
+        <div class="bubble bubble-6"></div>
+        <div class="bubble bubble-7"></div>
+        <div class="bubble bubble-8"></div>
+        
+        <!-- Shimmering Stars -->
+        <div class="star star-1"></div>
+        <div class="star star-2"></div>
+        <div class="star star-3"></div>
+        <div class="star star-4"></div>
+        <div class="star star-5"></div>
+        <div class="star star-6"></div>
+        <div class="star star-7"></div>
+        <div class="star star-8"></div>
+        
+        <!-- Floating Sparkles -->
+        <div class="sparkle sparkle-1"></div>
+        <div class="sparkle sparkle-2"></div>
+        <div class="sparkle sparkle-3"></div>
+        <div class="sparkle sparkle-4"></div>
+        <div class="sparkle sparkle-5"></div>
+    </div>
+    
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <div class="logo-circle">
+                    <i class="fas fa-spa"></i>
+                </div>
+                <h2 class="loading-title">Glamour<span class="accent-text">Glow</span></h2>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <p class="loading-text">Preparing your beauty experience...</p>
+            <div class="loading-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="navbar glass-nav">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="nav-logo">
+                <a href="#home">
+                    <div class="logo-icon pulse-slow">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-main">Glamour</span>
+                        <span class="logo-accent">Glow</span>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Desktop Menu -->
+            <div class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#home" class="nav-link active" data-section="home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+                    <li class="nav-item"><a href="services-products.html" class="nav-link" data-section="services"><i class="fas fa-concierge-bell"></i> <span>Services</span></a></li>
+                    <li class="nav-item"><a href="booking.html" class="nav-link" data-section="booking"><i class="fas fa-calendar-check"></i> <span>Booking</span></a></li>
+                    <li class="nav-item"><a href="#gallery" class="nav-link" data-section="gallery"><i class="fas fa-images"></i> <span>Gallery</span></a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link" data-section="contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+                </ul>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <div class="mobile-menu-btn">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            
+            <!-- Call to Action Buttons -->
+            <div class="nav-cta">
+                <a href="https://wa.me/254705455312" class="whatsapp-btn pulse-glow" target="_blank" title="Chat on WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span class="btn-text">Chat Now</span>
+                    <span class="btn-glow"></span>
+                </a>
+                <a href="tel:0705455312" class="call-btn" title="Call Salon">
+                    <i class="fas fa-phone"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu glass-card">
+            <ul class="mobile-nav-list">
+                <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="services-products.html"><i class="fas fa-concierge-bell"></i> Services & Products</a></li>
+                <li><a href="booking.html"><i class="fas fa-calendar-check"></i> Book Appointment</a></li>
+                <li><a href="#gallery"><i class="fas fa-images"></i> Gallery</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="#admin-login"><i class="fas fa-lock"></i> Admin Login</a></li>
+            </ul>
+            <div class="mobile-contact">
+                <a href="tel:0705455312" class="mobile-call-btn">
+                    <i class="fas fa-phone"></i> Call: 0705 455 312
+                </a>
+                <a href="https://wa.me/254705455312" class="mobile-whatsapp-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Chat
+                </a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="particle-container" id="particles"></div>
+            
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <!-- Animated Text -->
+                    <div class="hero-text">
+                        <div class="text-reveal">
+                            <h1 class="hero-title">
+                                <span class="title-line">Where Beauty</span>
+                                <span class="title-line accent">Meets <span class="glow-text">Perfection</span></span>
+                            </h1>
+                        </div>
+                        
+                        <div class="text-reveal delay-1">
+                            <p class="hero-subtitle">
+                                Experience luxury hair, makeup, skincare & nail services in our premium salon.
+                                Transform your look with our expert beauty artists.
+                            </p>
+                        </div>
+                        
+                        <div class="hero-buttons">
+                            <div class="text-reveal delay-2">
+                                <a href="booking.html" class="btn-primary neon-btn">
+                                    <span class="btn-text">Book Appointment</span>
+                                    <span class="btn-glow"></span>
+                                    <span class="btn-sparkle">
+                                        <i class="fas fa-sparkles"></i>
+                                    </span>
+                                </a>
+                            </div>
+                            
+                            <div class="text-reveal delay-3">
+                                <a href="#services" class="btn-secondary glass-btn">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>Explore Services</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Hero Visual Elements -->
+                    <div class="hero-visual">
+                        <!-- Floating 3D Cards -->
+                        <div class="floating-cards">
+                            <div class="flip-card card-1">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front glass-card">
+                                        <div class="card-icon">
+                                            <i class="fas fa-cut"></i>
+                                        </div>
+                                        <h4>Hair Styling</h4>
+                                        <p>From KSH 1,500</p>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <h4>Book Now!</h4>
+                                        <p>20% Off First Visit</p>
+                                        <button class="book-btn">Book</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flip-card card-2">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front glass-card">
+                                        <div class="card-icon">
+                                            <i class="fas fa-spa"></i>
+                                        </div>
+                                        <h4>Skincare</h4>
+                                        <p>From KSH 2,500</p>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <h4>Special Offer!</h4>
+                                        <p>Free Consultation</p>
+                                        <button class="book-btn">Book</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flip-card card-3">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front glass-card">
+                                        <div class="card-icon">
+                                            <i class="fas fa-palette"></i>
+                                        </div>
+                                        <h4>Makeup</h4>
+                                        <p>From KSH 3,000</p>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <h4>Bridal Special</h4>
+                                        <p>15% Off Packages</p>
+                                        <button class="book-btn">Book</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Animated Salon Chair -->
+                        <div class="salon-chair">
+                            <div class="chair-base"></div>
+                            <div class="chair-back"></div>
+                            <div class="chair-mirror">
+                                <div class="mirror-reflection">
+                                    <div class="reflection-sparkle"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Scroll Indicator -->
+                <div class="scroll-indicator">
+                    <div class="mouse">
+                        <div class="wheel"></div>
+                    </div>
+                    <p>Scroll to explore</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Services Preview Section -->
+        <section id="services" class="services-preview">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <h2><span class="title-decor">//</span> Our Premium Services <span class="title-decor">//</span></h2>
+                        <p class="section-subtitle">Experience excellence with our range of beauty treatments</p>
+                    </div>
+                    
+                    <div class="section-nav">
+                        <a href="services-products.html" class="view-all-btn">
+                            View All Services <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="services-grid">
+                    <!-- Service Card 1 -->
+                    <div class="service-card glass-card hover-lift">
+                        <div class="service-icon">
+                            <div class="icon-circle pulse-slow">
+                                <i class="fas fa-cut"></i>
+                            </div>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <h3 class="service-title">Hair Styling</h3>
+                        <p class="service-description">Professional haircuts, coloring, extensions, and treatments for all hair types.</p>
+                        <div class="service-features">
+                            <span><i class="fas fa-check"></i> Hair Coloring</span>
+                            <span><i class="fas fa-check"></i> Extensions</span>
+                            <span><i class="fas fa-check"></i> Treatments</span>
+                        </div>
+                        <div class="service-footer">
+                            <div class="price">From <span class="price-value">KSH 1,500</span></div>
+                            <a href="services-products.html?category=hair" class="service-btn">
+                                <span>Explore</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                        <div class="service-hover-glow"></div>
+                    </div>
+                    
+                    <!-- Service Card 2 -->
+                    <div class="service-card glass-card hover-lift">
+                        <div class="service-icon">
+                            <div class="icon-circle pulse-slow">
+                                <i class="fas fa-spa"></i>
+                            </div>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <h3 class="service-title">Skincare & Facials</h3>
+                        <p class="service-description">Rejuvenating facials, acne treatments, and custom skincare routines.</p>
+                        <div class="service-features">
+                            <span><i class="fas fa-check"></i> Facials</span>
+                            <span><i class="fas fa-check"></i> Acne Treatment</span>
+                            <span><i class="fas fa-check"></i> Anti-Aging</span>
+                        </div>
+                        <div class="service-footer">
+                            <div class="price">From <span class="price-value">KSH 2,500</span></div>
+                            <a href="services-products.html?category=skincare" class="service-btn">
+                                <span>Explore</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                        <div class="service-hover-glow"></div>
+                    </div>
+                    
+                    <!-- Service Card 3 -->
+                    <div class="service-card glass-card hover-lift">
+                        <div class="service-icon">
+                            <div class="icon-circle pulse-slow">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <h3 class="service-title">Makeup & Beauty</h3>
+                        <p class="service-description">Bridal makeup, event makeup, and personal beauty consultations.</p>
+                        <div class="service-features">
+                            <span><i class="fas fa-check"></i> Bridal Makeup</span>
+                            <span><i class="fas fa-check"></i> Event Makeup</span>
+                            <span><i class="fas fa-check"></i> Tutorials</span>
+                        </div>
+                        <div class="service-footer">
+                            <div class="price">From <span class="price-value">KSH 3,000</span></div>
+                            <a href="services-products.html?category=makeup" class="service-btn">
+                                <span>Explore</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                        <div class="service-hover-glow"></div>
+                    </div>
+                    
+                    <!-- Service Card 4 -->
+                    <div class="service-card glass-card hover-lift">
+                        <div class="service-icon">
+                            <div class="icon-circle pulse-slow">
+                                <i class="fas fa-hand-sparkles"></i>
+                            </div>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <h3 class="service-title">Nail Art & Care</h3>
+                        <p class="service-description">Manicures, pedicures, gel nails, and creative nail art designs.</p>
+                        <div class="service-features">
+                            <span><i class="fas fa-check"></i> Manicure</span>
+                            <span><i class="fas fa-check"></i> Pedicure</span>
+                            <span><i class="fas fa-check"></i> Nail Art</span>
+                        </div>
+                        <div class="service-footer">
+                            <div class="price">From <span class="price-value">KSH 1,200</span></div>
+                            <a href="services-products.html?category=nails" class="service-btn">
+                                <span>Explore</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                        <div class="service-hover-glow"></div>
+                    </div>
+                </div>
+                
+                <!-- Animated Stats -->
+                <div class="stats-container glass-card">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-value" data-count="1500">0</h3>
+                            <p class="stat-label">Happy Clients</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-value" data-count="7">0</h3>
+                            <p class="stat-label">Years Experience</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-value" data-count="4.9">0.0</h3>
+                            <p class="stat-label">Rating</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-value" data-count="98">0</h3>
+                            <p class="stat-label">% Satisfaction</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Gallery Preview Section -->
+        <section id="gallery" class="gallery-preview">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <h2><span class="title-decor">✧</span> Our Beauty Gallery <span class="title-decor">✧</span></h2>
+                        <p class="section-subtitle">See the transformations created by our beauty experts</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-grid">
+                    <!-- Gallery Item 1 -->
+                    <div class="gallery-item">
+                        <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                            <div class="image-overlay">
+                                <div class="overlay-content">
+                                    <h4>Bridal Makeup</h4>
+                                    <p>Elegant wedding look</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Gallery Item 2 -->
+                    <div class="gallery-item">
+                        <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                            <div class="image-overlay">
+                                <div class="overlay-content">
+                                    <h4>Hair Coloring</h4>
+                                    <p>Vibrant color transformation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Gallery Item 3 -->
+                    <div class="gallery-item">
+                        <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                            <div class="image-overlay">
+                                <div class="overlay-content">
+                                    <h4>Nail Art</h4>
+                                    <p>Creative designs</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                      <!-- Gallery Item 3 -->
+                    <div class="gallery-item">
+                        <div class="gallery-image" style="background-image: url('data:image/jpeg;base64,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');">
+                            <div class="image-overlay">
+                                <div class="overlay-content">
+                                    <h4>Barbering</h4>
+                                    <p>Creative designs</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+
+                    <!-- Gallery Item 4 -->
+                    <div class="gallery-item">
+                        <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1559599101-f09722fb4948?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                            <div class="image-overlay">
+                                <div class="overlay-content">
+                                    <h4>Skincare</h4>
+                                    <p>Relaxing facial treatment</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <a href="#contact" class="btn-secondary glass-btn">
+                        <i class="fas fa-image"></i>
+                        <span>View More Photos</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Products Preview -->
+        <section class="products-preview">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <h2><span class="title-decor">✦</span> Featured Products <span class="title-decor">✦</span></h2>
+                        <p class="section-subtitle">Premium beauty products available for purchase</p>
+                    </div>
+                    
+                    <div class="section-nav">
+                        <a href="services-products.html?view=products" class="view-all-btn">
+                            Shop All Products <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="products-grid">
+                    <!-- Product Card 1 -->
+                    <div class="product-card glass-card hover-tilt">
+                        <div class="product-badge">BESTSELLER</div>
+                        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                            <div class="product-overlay">
+                                <button class="quick-view-btn" data-product="1">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <div class="product-category">Hair Care</div>
+                            <h3 class="product-title">Organic Hair Serum</h3>
+                            <p class="product-description">Nourishes and protects hair from damage</p>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="rating-count">(128)</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="product-price">
+                                    <span class="current-price">KSH 2,500</span>
+                                    <span class="old-price">KSH 3,000</span>
+                                </div>
+                                <button class="add-to-cart-btn">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span>Add to Cart</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-glow"></div>
+                    </div>
+                    
+                    <!-- Product Card 2 -->
+                    <div class="product-card glass-card hover-tilt">
+                        <div class="product-badge">NEW</div>
+                        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                            <div class="product-overlay">
+                                <button class="quick-view-btn" data-product="2">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <div class="product-category">Skincare</div>
+                            <h3 class="product-title">Premium Facial Cream</h3>
+                            <p class="product-description">Anti-aging with natural ingredients</p>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="rating-count">(89)</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="product-price">
+                                    <span class="current-price">KSH 3,200</span>
+                                </div>
+                                <button class="add-to-cart-btn">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span>Add to Cart</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-glow"></div>
+                    </div>
+                    
+                    <!-- Product Card 3 -->
+                    <div class="product-card glass-card hover-tilt">
+                        <div class="product-badge">SALE</div>
+                        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                            <div class="product-overlay">
+                                <button class="quick-view-btn" data-product="3">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <div class="product-category">Nail Care</div>
+                            <h3 class="product-title">Nail Care Kit</h3>
+                            <p class="product-description">Complete set for professional nail care</p>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="rating-count">(64)</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="product-price">
+                                    <span class="current-price">KSH 4,800</span>
+                                    <span class="old-price">KSH 6,000</span>
+                                </div>
+                                <button class="add-to-cart-btn">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span>Add to Cart</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-glow"></div>
+                    </div>
+                </div>
+                
+                <!-- Quick View Modal -->
+                <div class="quick-view-modal glass-card" id="quickViewModal">
+                    <div class="modal-header">
+                        <h3>Product Quick View</h3>
+                        <button class="close-modal-btn">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Content loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <h2><span class="title-decor">✉</span> Contact Us <span class="title-decor">✉</span></h2>
+                        <p class="section-subtitle">Get in touch for bookings, inquiries, or consultations</p>
+                    </div>
+                </div>
+                
+                <div class="contact-container">
+                    <!-- Contact Info Cards -->
+                    <div class="contact-info">
+                        <div class="info-card glass-card">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Our Location</h4>
+                                <p>Nyeri Town Center<br>Nyeri, Kenya</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card glass-card">
+                            <div class="info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Call Us</h4>
+                                <p>0705 455 312</p>
+                                <a href="tel:0705455312" class="info-link">Call Now</a>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card glass-card">
+                            <div class="info-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>WhatsApp</h4>
+                                <p>0705 455 312</p>
+                                <a href="https://wa.me/254705455312" class="info-link" target="_blank">Chat Now</a>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card glass-card">
+                            <div class="info-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Working Hours</h4>
+                                <p>Mon - Sat: 8am - 7pm</p>
+                                <p>Sunday: 10am - 4pm</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Form -->
+                    <div class="contact-form-container glass-card">
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-header">
+                                <h3>Send Us a Message</h3>
+                                <p>We'll respond within 24 hours</p>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="input-with-icon">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="name" placeholder="Your Name" required>
+                                    <div class="input-glow"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="input-with-icon">
+                                    <i class="fas fa-phone"></i>
+                                    <input type="tel" id="phone" placeholder="Phone Number" required>
+                                    <div class="input-glow"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="input-with-icon">
+                                    <i class="fas fa-envelope"></i>
+                                    <input type="email" id="email" placeholder="Email Address" required>
+                                    <div class="input-glow"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="input-with-icon">
+                                    <i class="fas fa-edit"></i>
+                                    <textarea id="message" placeholder="Your Message" rows="4" required></textarea>
+                                    <div class="input-glow"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" required>
+                                    <span class="checkbox-custom"></span>
+                                    I agree to receive updates via WhatsApp
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn neon-btn">
+                                <span class="btn-text">Send Message</span>
+                                <span class="btn-glow"></span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Map Preview -->
+                <div class="map-preview glass-card">
+                    <div class="map-placeholder">
+                        <div class="map-overlay">
+                            <h4><i class="fas fa-map-marked-alt"></i> Find Us Here</h4>
+                            <p>Nyeri Town Center, Nyeri, Kenya</p>
+                            <button class="get-directions-btn">
+                            
+
+
+                                <i class="fas fa-directions"></i>
+                                <span>Get Directions</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Admin Login Section -->
+        <section id="admin-login" class="admin-login-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <h2><span class="title-decor">🔒</span> Salon Management <span class="title-decor">🔒</span></h2>
+                        <p class="section-subtitle">Admin access for business management</p>
+                    </div>
+                </div>
+                
+                <div class="admin-login-container glass-card">
+                    <div class="admin-login-content">
+                        <div class="admin-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>Admin Dashboard</h3>
+                        <p>Access the admin panel to manage appointments, products, services, and salon settings.</p>
+                        
+                        <div class="admin-features">
+                            <div class="feature-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Manage Bookings</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-store"></i>
+                                <span>Update Products</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-concierge-bell"></i>
+                                <span>Edit Services</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-image"></i>
+                                <span>Gallery Control</span>
+                            </div>
+                        </div>
+                        
+                        <button id="adminLoginBtn" class="admin-login-btn">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>Access Admin Panel</span>
+                        </button>
+                        
+                        <p class="admin-note">Contact website administrator for login credentials</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Social Media Section -->
+        <section class="social-media-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <h2><span class="title-decor">📱</span> Follow Our Journey <span class="title-decor">📱</span></h2>
+                        <p class="section-subtitle">Stay updated with our latest work and offers</p>
+                    </div>
+                </div>
+                
+                <div class="social-media-container">
+                    <div class="social-grid">
+                        <!-- Facebook -->
+                        <a href="#" class="social-card facebook glass-card hover-lift">
+                            <div class="social-icon">
+                                <i class="fab fa-facebook-f"></i>
+                            </div>
+                            <div class="social-content">
+                                <h4>Facebook</h4>
+                                <p>Follow for updates</p>
+                                <span class="social-handle">@GlamourGlowSalon</span>
+                            </div>
+                            <div class="social-glow"></div>
+                        </a>
+                        
+                        <!-- Instagram -->
+                        <a href="#" class="social-card instagram glass-card hover-lift">
+                            <div class="social-icon">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <div class="social-content">
+                                <h4>Instagram</h4>
+                                <p>See our work</p>
+                                <span class="social-handle">@glamourglow_salon</span>
+                            </div>
+                            <div class="social-glow"></div>
+                        </a>
+                        
+                        <!-- TikTok -->
+                        <a href="#" class="social-card tiktok glass-card hover-lift">
+                            <div class="social-icon">
+                                <i class="fab fa-tiktok"></i>
+                            </div>
+                            <div class="social-content">
+                                <h4>TikTok</h4>
+                                <p>Watch transformations</p>
+                                <span class="social-handle">@glamourglow</span>
+                            </div>
+                            <div class="social-glow"></div>
+                        </a>
+                        
+                        <!-- YouTube -->
+                        <a href="#" class="social-card youtube glass-card hover-lift">
+                            <div class="social-icon">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                            <div class="social-content">
+                                <h4>YouTube</h4>
+                                <p>Tutorials & Tips</p>
+                                <span class="social-handle">GlamourGlow Beauty</span>
+                            </div>
+                            <div class="social-glow"></div>
+                        </a>
+                    </div>
+                    
+                    <!-- Social Icons Compact -->
+                    <div class="social-icons-compact">
+                        <a href="#" class="social-icon-btn facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon-btn instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon-btn tiktok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="#" class="social-icon-btn youtube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-icon-btn whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Footer Logo & Info -->
+                <div class="footer-col footer-about">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-main">Glamour</span>
+                            <span class="logo-accent">Glow</span>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Premium beauty salon offering expert hair, makeup, skincare, and nail services. 
+                        Transform your beauty experience with our certified professionals.
+                    </p>
+                    
+                    <div class="footer-actions">
+                        <a href="booking.html" class="footer-btn">
+                            <i class="fas fa-calendar-check"></i>
+                            Book Now
+                        </a>
+                        <a href="https://wa.me/254705455312" class="footer-btn whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            Chat Now
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="footer-col footer-links">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-list">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="services-products.html"><i class="fas fa-chevron-right"></i> Services & Products</a></li>
+                        <li><a href="booking.html"><i class="fas fa-chevron-right"></i> Book Appointment</a></li>
+                        <li><a href="#gallery"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                        <li><a href="#admin-login"><i class="fas fa-chevron-right"></i> Admin Login</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div class="footer-col footer-services">
+                    <h4 class="footer-title">Our Services</h4>
+                    <ul class="footer-list">
+                        <li><a href="services-products.html?category=hair"><i class="fas fa-cut"></i> Hair Styling</a></li>
+                        <li><a href="services-products.html?category=skincare"><i class="fas fa-spa"></i> Skincare</a></li>
+                        <li><a href="services-products.html?category=makeup"><i class="fas fa-palette"></i> Makeup</a></li>
+                        <li><a href="services-products.html?category=nails"><i class="fas fa-hand-sparkles"></i> Nail Art</a></li>
+                        <li><a href="services-products.html?category=waxing"><i class="fas fa-fire"></i> Waxing</a></li>
+                        <li><a href="services-products.html?category=bridal"><i class="fas fa-heart"></i> Bridal Packages</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info & Map Preview -->
+                <div class="footer-col footer-contact">
+                    <h4 class="footer-title">Contact Info</h4>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Address</strong>
+                                <p>Nyeri Town Center<br>Nyeri, Kenya</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Phone</strong>
+                                <p>0705 455 312</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong>
+                                <p>info@glamourglow.co.ke</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Hours</strong>
+                                <p>Mon-Sat: 8am-7pm<br>Sun: 10am-4pm</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Small Map Preview -->
+                    <div class="small-map-preview">
+                        <div class="map-mini">
+                            <div class="map-marker">
+                                <i class="fas fa-map-pin"></i>
+                            </div>
+                            <p>Nyeri Town Center</p>
+                            <a href="#" class="view-map-btn">View Map</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="copyright">
+                        <p>&copy; 2024 GlamourGlow Beauty Salon. All rights reserved. | Designed for Business Demonstration</p>
+                    </div>
+                    
+                    <div class="footer-legal">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Cookie Policy</a>
+                    </div>
+                    
+                    <div class="back-to-top">
+                        <button id="backToTop" class="back-top-btn">
+                            <i class="fas fa-arrow-up"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Admin Login Modal -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-modal-content glass-card">
+            <div class="login-modal-header">
+                <h3><i class="fas fa-lock"></i> Admin Login</h3>
+                <button class="close-login-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="login-modal-body">
+                <form id="adminLoginForm">
+                    <div class="form-group">
+                        <label for="adminUsername">Username</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="adminUsername" value="admin" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="adminPassword">Password</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-key"></i>
+                            <input type="password" id="adminPassword" placeholder="Enter password" required>
+                            <button type="button" class="show-password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <p class="password-hint">Default: admin123 (Change in dashboard)</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="rememberMe">
+                            <span class="checkbox-custom"></span>
+                            Remember me
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="login-submit-btn neon-btn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>Login to Dashboard</span>
+                    </button>
+                </form>
+                
+                <div class="login-footer">
+                    <p>Forgot password? Contact website administrator.</p>
+                    <p class="demo-note">Demo: Username: admin | Password: admin123</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>

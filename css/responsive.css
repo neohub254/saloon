@@ -1,0 +1,645 @@
+/* 
+=============================================
+GLOBAL RESPONSIVE STYLES
+Media queries for all devices
+=============================================
+*/
+
+/* Extra Large Screens (1440px and above) */
+@media screen and (min-width: 1440px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .hero-title {
+        font-size: 4.5rem;
+    }
+}
+
+/* Large Screens (1200px - 1439px) */
+@media screen and (max-width: 1200px) {
+    .container {
+        max-width: 1140px;
+        padding: 0 30px;
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .hero-visual {
+        height: 400px;
+        margin-top: 40px;
+    }
+    
+    .floating-cards {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+    }
+    
+    .flip-card {
+        position: relative;
+        width: 180px;
+        height: 220px;
+    }
+    
+    .salon-chair {
+        right: 10%;
+        transform: scale(0.9);
+    }
+}
+
+/* Tablets (768px - 1199px) */
+@media screen and (max-width: 1199px) {
+    .container {
+        max-width: 960px;
+        padding: 0 25px;
+    }
+    
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .services-grid,
+    .products-grid,
+    .social-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .contact-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .nav-list {
+        gap: 25px;
+    }
+    
+    .section-title h2 {
+        font-size: 2.5rem;
+    }
+    
+    .floating-cards {
+        display: none;
+    }
+    
+    .salon-chair {
+        display: none;
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+/* Large Mobile Devices (576px - 767px) */
+@media screen and (max-width: 767px) {
+    .container {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+    
+    /* Navigation */
+    .nav-menu {
+        display: none;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .nav-cta {
+        gap: 10px;
+    }
+    
+    .whatsapp-btn .btn-text {
+        display: none;
+    }
+    
+    .whatsapp-btn {
+        padding: 12px;
+        width: 45px;
+        height: 45px;
+        justify-content: center;
+    }
+    
+    /* Hero Section */
+    .hero-title {
+        font-size: 2.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+    
+    /* Services & Products */
+    .services-grid,
+    .products-grid,
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .services-preview,
+    .products-preview,
+    .gallery-preview,
+    .contact-section {
+        padding: 60px 0;
+    }
+    
+    .section-title h2 {
+        font-size: 2rem;
+    }
+    
+    /* Stats */
+    .stats-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 30px 20px;
+    }
+    
+    .stat-item {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .stat-icon {
+        margin: 0 auto;
+    }
+    
+    /* Contact */
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-form-container {
+        padding: 25px;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    /* Gallery */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .gallery-item {
+        height: 250px;
+    }
+    
+    /* Social Media */
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .admin-features {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .footer-logo {
+        justify-content: center;
+    }
+    
+    .footer-actions {
+        justify-content: center;
+    }
+    
+    .footer-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    
+    .footer-bottom-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .footer-legal {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    /* Map Preview */
+    .map-preview {
+        padding: 20px;
+    }
+    
+    .map-placeholder {
+        height: 180px;
+    }
+}
+
+/* Small Mobile Devices (320px - 575px) */
+@media screen and (max-width: 575px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* Typography */
+    .hero-title {
+        font-size: 2.2rem;
+        line-height: 1.1;
+    }
+    
+    .section-title h2 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-subtitle,
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    /* Cards */
+    .glass-card {
+        padding: 20px;
+        border-radius: 15px;
+    }
+    
+    /* Navigation */
+    .nav-logo .logo-main {
+        font-size: 18px;
+    }
+    
+    .nav-logo .logo-accent {
+        font-size: 20px;
+    }
+    
+    .logo-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+    
+    /* Buttons */
+    .btn-primary,
+    .btn-secondary {
+        padding: 15px 25px;
+        font-size: 14px;
+    }
+    
+    .whatsapp-btn,
+    .call-btn {
+        width: 40px;
+        height: 40px;
+    }
+    
+    /* Services & Products */
+    .service-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .icon-circle {
+        font-size: 24px;
+    }
+    
+    .service-title,
+    .product-title {
+        font-size: 1.2rem;
+    }
+    
+    .service-description,
+    .product-description {
+        font-size: 13px;
+    }
+    
+    /* Gallery */
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-item {
+        height: 280px;
+    }
+    
+    /* Form Elements */
+    .input-with-icon input,
+    .input-with-icon textarea {
+        padding: 12px 12px 12px 40px;
+        font-size: 14px;
+    }
+    
+    .input-with-icon i {
+        left: 15px;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 40px 0 0;
+    }
+    
+    .footer-col {
+        padding: 15px 0;
+    }
+    
+    .copyright p {
+        font-size: 12px;
+    }
+    
+    .footer-legal a {
+        font-size: 12px;
+    }
+    
+    /* Modal */
+    .login-modal-content,
+    .quick-view-modal {
+        padding: 25px;
+    }
+    
+    .login-modal-header h3 {
+        font-size: 1.3rem;
+    }
+    
+    /* Admin Section */
+    .admin-login-container {
+        padding: 30px 20px;
+    }
+    
+    .admin-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+    }
+    
+    .admin-login-content h3 {
+        font-size: 1.5rem;
+    }
+    
+    /* Animation Adjustments for Mobile */
+    .background-animation .cloud {
+        display: none;
+    }
+    
+    .floating-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+    
+    .bubble {
+        display: none;
+    }
+    
+    .star {
+        display: none;
+    }
+}
+
+/* Very Small Devices (below 320px) */
+@media screen and (max-width: 319px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-title h2 {
+        font-size: 1.5rem;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        padding: 12px 20px;
+        font-size: 13px;
+    }
+    
+    .service-card,
+    .product-card {
+        padding: 15px;
+    }
+    
+    .stats-container {
+        padding: 20px 15px;
+    }
+    
+    .stat-value {
+        font-size: 2rem;
+    }
+    
+    .footer-btn {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+}
+
+/* Landscape Orientation for Mobile */
+@media screen and (max-height: 600px) and (orientation: landscape) {
+    .hero-section {
+        min-height: auto;
+        padding: 100px 0 60px;
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .hero-visual {
+        height: 250px;
+    }
+    
+    .flip-card {
+        width: 150px;
+        height: 180px;
+    }
+    
+    .card-icon {
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+    
+    .loading-screen .logo-circle {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+    }
+    
+    .loading-title {
+        font-size: 32px;
+    }
+}
+
+/* High-DPI Screens */
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+       screen and (min-resolution: 192dpi) {
+    .glass-card {
+        backdrop-filter: blur(30px);
+    }
+    
+    .hero-overlay {
+        background: linear-gradient(135deg, rgba(15, 15, 26, 0.85), rgba(255, 77, 148, 0.15));
+    }
+}
+
+/* Print Styles */
+@media print {
+    .background-animation,
+    .mobile-menu-btn,
+    .nav-cta,
+    .hero-visual,
+    .scroll-indicator,
+    .service-btn,
+    .add-to-cart-btn,
+    .get-directions-btn,
+    .admin-login-btn,
+    .social-icons-compact,
+    .back-top-btn,
+    .footer-actions,
+    .view-map-btn {
+        display: none !important;
+    }
+    
+    .navbar {
+        position: static;
+        background: white !important;
+        color: black !important;
+    }
+    
+    .nav-logo {
+        color: black !important;
+    }
+    
+    .glass-card {
+        background: white !important;
+        border: 1px solid #ddd !important;
+        box-shadow: none !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    a {
+        color: black !important;
+        text-decoration: underline !important;
+    }
+    
+    .hero-title,
+    .section-title h2,
+    .service-title,
+    .product-title,
+    .footer-title {
+        color: black !important;
+    }
+    
+    .hero-subtitle,
+    .section-subtitle,
+    .service-description,
+    .product-description {
+        color: #666 !important;
+    }
+}
+
+/* Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .background-animation,
+    .floating-icon,
+    .bubble,
+    .star,
+    .sparkle,
+    .pulse-slow,
+    .pulse-glow,
+    .neon-flicker,
+    .heartbeat,
+    .flash,
+    .rotate-infinite,
+    .rotate-reverse {
+        animation: none !important;
+    }
+    
+    .hover-lift:hover,
+    .hover-tilt:hover,
+    .flip-card:hover .flip-card-inner {
+        transform: none !important;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --deep-navy: #0a0a0f;
+        --navy-dark: #050508;
+        --navy-light: #12121f;
+        --glass-white: rgba(255, 255, 255, 0.05);
+    }
+}
+
+/* Light Mode Support */
+@media (prefers-color-scheme: light) {
+    :root {
+        --deep-navy: #f8f9fa;
+        --navy-dark: #e9ecef;
+        --navy-light: #ffffff;
+        --glass-white: rgba(0, 0, 0, 0.05);
+    }
+    
+    body {
+        color: #333;
+    }
+    
+    .glass-card {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav-link,
+    .service-title,
+    .product-title,
+    .footer-title,
+    .hero-title,
+    .section-title h2 {
+        color: #333;
+    }
+    
+    .hero-subtitle,
+    .section-subtitle,
+    .service-description,
+    .product-description {
+        color: #666;
+    }
+}
