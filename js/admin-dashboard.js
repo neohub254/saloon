@@ -20,7 +20,139 @@ async function loadProductsFromBackend() {
         showNotification('Failed to load products. Please refresh the page.', 'error');
     }
 }
+// ========== PAGINATION FOR PRODUCTS ==========
+let currentPage = 1;
+const productsPerPage = 10;
 
+function loadProductsTable(filter = 'all', search = '', page = 1) {
+    const tableBody = document.getElementById('products-table-body');
+    if (!tableBody) return;
+    
+    let filteredProducts = [...adminProducts];
+    
+    // Apply filters (your existing code)
+    if (filter !== 'all') {
+        filteredProducts = filteredProducts.filter(product => product.category === filter);
+    }
+    
+    if (search) {
+        const searchTerm = search.toLowerCase();
+        filteredProducts = filteredProducts.filter(product => 
+            product.name.toLowerCase().includes(searchTerm) ||
+            product.description.toLowerCase().includes(searchTerm)
+        );
+    }
+    
+    // Apply stock filter
+    const stockFilter = document.getElementById('stock-filter')?.value || 'all';
+    if (stockFilter !== 'all') {
+        switch(stockFilter) {
+            case 'in-stock':
+                filteredProducts = filteredProducts.filter(p => p.stock > 10);
+                break;
+            case 'low-stock':
+                filteredProducts = filteredProducts.filter(p => p.stock <= 10 && p.stock > 0);
+                break;
+            case 'out-of-stock':
+                filteredProducts = filteredProducts.filter(p => p.stock === 0);
+                break;
+        }
+    }
+    
+    // Calculate pagination
+    const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+    const startIndex = (page - 1) * productsPerPage;
+    const endIndex = Math.min(startIndex + productsPerPage, filteredProducts.length);
+    const pageProducts = filteredProducts.slice(startIndex, endIndex);
+    
+    // Display products
+    tableBody.innerHTML = '';
+    
+    if (pageProducts.length === 0) {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td colspan="7" style="text-align: center; color: var(--text-gray); padding: 40px;">
+                No products found. Add your first product!
+            </td>
+        `;
+        tableBody.appendChild(row);
+    } else {
+        pageProducts.forEach(product => {
+            const statusClass = getStockStatusClass(product.stock);
+            const statusText = getStockStatusText(product.stock);
+            
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td class="product-image-cell">
+                    <div class="product-image-preview" style="background-image: url('${product.image}')"></div>
+                </td>
+                <td>${product.name}</td>
+                <td>${product.category}</td>
+                <td>KSH ${product.price.toLocaleString()}</td>
+                <td>${product.stock}</td>
+                <td><span class="status-badge ${statusClass}">${statusText}</span></td>
+                <td>
+                    <div class="action-buttons">
+                        <button class="btn-edit" onclick="editProduct(${product.id})">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn-delete" onclick="deleteProduct(${product.id})">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </td>
+            `;
+            tableBody.appendChild(row);
+        });
+    }
+    
+    // Generate pagination buttons
+    generatePagination(filteredProducts.length, page);
+    currentPage = page;
+}
+
+function generatePagination(totalProducts, currentPage) {
+    const paginationContainer = document.getElementById('pagination');
+    if (!paginationContainer) return;
+    
+    const totalPages = Math.ceil(totalProducts / productsPerPage);
+    
+    if (totalPages <= 1) {
+        paginationContainer.innerHTML = '';
+        return;
+    }
+    
+    let paginationHTML = '';
+    
+    // Previous button
+    if (currentPage > 1) {
+        paginationHTML += `<button class="page-btn" onclick="loadProductsTable(getCurrentFilter(), getCurrentSearch(), ${currentPage - 1})">&laquo; Prev</button>`;
+    }
+    
+    // Page numbers
+    for (let i = 1; i <= totalPages; i++) {
+        if (i === currentPage) {
+            paginationHTML += `<button class="page-btn active">${i}</button>`;
+        } else {
+            paginationHTML += `<button class="page-btn" onclick="loadProductsTable(getCurrentFilter(), getCurrentSearch(), ${i})">${i}</button>`;
+        }
+    }
+    
+    // Next button
+    if (currentPage < totalPages) {
+        paginationHTML += `<button class="page-btn" onclick="loadProductsTable(getCurrentFilter(), getCurrentSearch(), ${currentPage + 1})">Next &raquo;</button>`;
+    }
+    
+    paginationContainer.innerHTML = paginationHTML;
+}
+
+function getCurrentFilter() {
+    return document.getElementById('category-filter')?.value || 'all';
+}
+
+function getCurrentSearch() {
+    return document.getElementById('product-search')?.value || '';
+}
 // Initialize Admin Dashboard
 document.addEventListener('DOMContentLoaded', async function() {
     // Load products from backend first
@@ -668,3 +800,4 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
