@@ -16,6 +16,34 @@ document.addEventListener('DOMContentLoaded', function() {
     initMobileMenu();
 });
 
+// ========== MOBILE MENU ==========
+function initMobileMenu() {
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const closeMenuBtn = document.querySelector('.close-mobile-menu');
+    
+    if (hamburger && mobileMenu) {
+        // Open menu when hamburger clicked
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+        
+        // Close menu when X button clicked
+        if (closeMenuBtn) {
+            closeMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        }
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+    }
+}
+
 // ========== VIEW TOGGLE ==========
 function initViewToggle() {
     const toggleBtns = document.querySelectorAll('.toggle-btn');
@@ -372,12 +400,15 @@ function getIconClass(iconName) {
 }
 
 // ========== LOAD PRODUCTS ==========
-function loadProducts() {
+async function loadProducts() {
     const productsContainer = document.getElementById('productsContainer');
     if (!productsContainer) return;
     
-    // Sample products data
-    const products = [
+    // Show loading message
+    productsContainer.innerHTML = '<div class="loading-message">Loading products...</div>';
+    
+    // DEMO PRODUCTS (will show if backend is empty or fails)
+    const demoProducts = [
         {
             id: 1,
             category: 'hair',
@@ -440,14 +471,48 @@ function loadProducts() {
         }
     ];
     
+    try {
+        // Try to fetch products from your Render backend
+        const response = await fetch('https://beautysalon-div4.onrender.com/api/products');
+        
+        if (response.ok) {
+            const backendProducts = await response.json();
+            
+            // If backend has products, use them
+            if (backendProducts && backendProducts.length > 0) {
+                console.log('Showing products from backend');
+                displayProducts(backendProducts);
+                return;
+            }
+        }
+        
+        // If backend empty or error, show demo products
+        console.log('Showing demo products');
+        displayProducts(demoProducts);
+        
+    } catch (error) {
+        // If network error, show demo products
+        console.error('Network error, showing demo products:', error);
+        displayProducts(demoProducts);
+    }
+}
+
+// Helper function to display products
+function displayProducts(productsArray) {
+    const productsContainer = document.getElementById('productsContainer');
+    if (!productsContainer) return;
+    
     // Clear container
     productsContainer.innerHTML = '';
     
     // Add products to DOM
-    products.forEach(product => {
+    productsArray.forEach(product => {
         const productItem = createProductElement(product);
         productsContainer.appendChild(productItem);
     });
+    
+    // Re-initialize actions for the new product buttons
+    initProductActions();
 }
 
 function createProductElement(product) {
@@ -456,12 +521,22 @@ function createProductElement(product) {
     div.setAttribute('data-category', product.category);
     div.setAttribute('data-id', product.id);
     
+    // Handle price formatting
+    let priceDisplay;
+    if (typeof product.price === 'number') {
+        priceDisplay = 'KSH ' + product.price.toLocaleString();
+    } else if (product.price && product.price.startsWith('KSH')) {
+        priceDisplay = product.price;
+    } else {
+        priceDisplay = 'KSH ' + (product.price || '0');
+    }
+    
     const badgeHtml = product.badge ? `<div class="product-badge">${product.badge}</div>` : '';
-    const starsHtml = generateStarRating(product.rating);
+    const starsHtml = generateStarRating(product.rating || 0);
     
     div.innerHTML = `
         ${badgeHtml}
-        <div class="product-image" style="background-image: url('${product.image}')">
+        <div class="product-image" style="background-image: url('${product.image || 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'}')">
             <div class="product-overlay">
                 <button class="quick-view-product-btn" data-product="${product.id}">
                     <i class="fas fa-eye"></i>
@@ -474,10 +549,10 @@ function createProductElement(product) {
             <p class="product-description">${product.description}</p>
             <div class="product-rating">
                 ${starsHtml}
-                <span class="rating-count">(${product.rating})</span>
+                <span class="rating-count">(${product.rating || 0})</span>
             </div>
             <div class="product-footer">
-                <div class="product-price">${product.price}</div>
+                <div class="product-price">${priceDisplay}</div>
                 <button class="add-to-cart-product-btn" data-product="${product.id}">
                     <i class="fas fa-shopping-cart"></i>
                     <span>Add to Cart</span>
@@ -551,16 +626,34 @@ function initProductActions() {
     
     // Quick view functionality
     quickViewBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', async function() {
             const productId = this.getAttribute('data-product');
-            showProductQuickView(productId);
+            await showProductQuickView(productId);
         });
     });
 }
 
-function showProductQuickView(productId) {
-    // Sample product data
-    const products = {
+async function showProductQuickView(productId) {
+    try {
+        // Try to fetch product details from backend
+        const response = await fetch(`https://beautysalon-div4.onrender.com/api/products/${productId}`);
+        
+        if (response.ok) {
+            const product = await response.json();
+            createQuickViewModal(product);
+        } else {
+            // Fallback to demo data
+            showDemoQuickView(productId);
+        }
+    } catch (error) {
+        console.error('Error fetching product details:', error);
+        showDemoQuickView(productId);
+    }
+}
+
+function showDemoQuickView(productId) {
+    // Demo product data
+    const demoProducts = {
         1: {
             name: 'Organic Hair Serum',
             category: 'Hair Care',
@@ -581,9 +674,12 @@ function showProductQuickView(productId) {
         }
     };
     
-    const product = products[productId];
+    const product = demoProducts[productId];
     if (!product) return;
-    
+    createQuickViewModal(product);
+}
+
+function createQuickViewModal(product) {
     // Create modal
     const modal = document.createElement('div');
     modal.className = 'product-quick-view-modal';
@@ -600,16 +696,16 @@ function showProductQuickView(productId) {
                     <div class="detail-section">
                         <h4><i class="fas fa-list"></i> Features</h4>
                         <ul>
-                            ${product.features.map(f => `<li><i class="fas fa-check"></i> ${f}</li>`).join('')}
+                            ${product.features ? product.features.map(f => `<li><i class="fas fa-check"></i> ${f}</li>`).join('') : ''}
                         </ul>
                     </div>
                     <div class="detail-section">
                         <h4><i class="fas fa-flask"></i> Key Ingredients</h4>
-                        <p>${product.ingredients}</p>
+                        <p>${product.ingredients || ''}</p>
                     </div>
                     <div class="detail-section">
                         <h4><i class="fas fa-info-circle"></i> How to Use</h4>
-                        <p>${product.usage}</p>
+                        <p>${product.usage || ''}</p>
                     </div>
                 </div>
                 <div class="modal-actions">
@@ -794,27 +890,6 @@ function showProductQuickView(productId) {
             document.removeEventListener('keydown', closeOnEscape);
         }
     });
-}
-
-// ========== MOBILE MENU ==========
-function initMobileMenu() {
-    const hamburger = document.querySelector('.hamburger');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    
-    if (hamburger && mobileMenu) {
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-                hamburger.classList.remove('active');
-                mobileMenu.classList.remove('active');
-            }
-        });
-    }
 }
 
 // ========== UTILITY FUNCTIONS ==========
