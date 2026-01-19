@@ -26,6 +26,9 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Load products from backend first
     await loadProductsFromBackend();
     
+    // Initialize mobile menu
+    initMobileMenu();
+    
     // Then initialize everything else
     initAdminDashboard();
     loadDashboardData();
@@ -33,6 +36,34 @@ document.addEventListener('DOMContentLoaded', async function() {
     initCharts();
     initEventListeners();
 });
+
+// ========== MOBILE MENU ==========
+function initMobileMenu() {
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const closeMenuBtn = document.querySelector('.close-mobile-menu');
+    
+    if (hamburger && mobileMenu) {
+        // Open menu when hamburger clicked
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+        
+        // Close menu when X button clicked
+        if (closeMenuBtn) {
+            closeMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        }
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+    }
+}
 
 function initAdminDashboard() {
     // Sidebar toggle
@@ -72,6 +103,12 @@ function initAdminDashboard() {
                 if (pageTitle) {
                     pageTitle.textContent = this.textContent.trim();
                 }
+            }
+            
+            // Close mobile menu if open
+            const mobileMenu = document.querySelector('.mobile-menu');
+            if (mobileMenu) {
+                mobileMenu.classList.remove('active');
             }
         });
     });
