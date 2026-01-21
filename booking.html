@@ -1,544 +1,314 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Appointment | GlamourGlow Salon</title>
-    <!-- Fonts & Icons -->
+    <title>Salon Elegance | Book Appointment</title>
+    <link rel="stylesheet" href="css/products-main.css">
+    <link rel="stylesheet" href="css/booking.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="css/booking-style.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    
-    <!-- Calendar CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/lipstick.png">
 </head>
 <body>
-    <!-- Background Animation Elements -->
-    <div class="background-animation">
-        <!-- Calendar Icons -->
-        <div class="calendar-icon icon-1"><i class="fas fa-calendar-alt"></i></div>
-        <div class="calendar-icon icon-2"><i class="fas fa-clock"></i></div>
-        <div class="calendar-icon icon-3"><i class="fas fa-calendar-check"></i></div>
-        
-        <!-- Appointment Cards Floating -->
-        <div class="appointment-card card-1"></div>
-        <div class="appointment-card card-2"></div>
-        <div class="appointment-card card-3"></div>
-    </div>
-    
     <!-- Navigation -->
-    <nav class="navbar glass-nav">
+    <nav class="main-nav">
         <div class="nav-container">
-            <!-- Logo -->
-            <div class="nav-logo">
-                <a href="index.html">
-                    <div class="logo-icon pulse-slow">
-                        <i class="fas fa-spa"></i>
-                    </div>
-                    <div class="logo-text">
-                        <span class="logo-main">Glamour</span>
-                        <span class="logo-accent">Glow</span>
-                    </div>
+            <a href="index.html" class="logo">
+                <i class="fas fa-crown"></i>
+                <span>Salon</span>Elegance
+            </a>
+            
+            <div class="nav-links">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="products-services.html"><i class="fas fa-store"></i> Shop</a>
+                <a href="booking.html" class="active"><i class="fas fa-calendar-check"></i> Book</a>
+                <a href="#basket" class="basket-icon" id="basket-toggle">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span class="basket-count" id="basket-count">0</span>
                 </a>
             </div>
             
-            <!-- Mobile Menu Button -->
-            <div class="mobile-menu-btn">
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-            
-            <!-- Navigation Links -->
-            <div class="nav-menu">
-                <ul class="nav-list">
-                    <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> <span>Home</span></a></li>
-                    <li class="nav-item"><a href="services-products.html" class="nav-link"><i class="fas fa-concierge-bell"></i> <span>Services</span></a></li>
-                    <li class="nav-item"><a href="#" class="nav-link active"><i class="fas fa-calendar-check"></i> <span>Booking</span></a></li>
-                    <li class="nav-item"><a href="index.html#gallery" class="nav-link"><i class="fas fa-images"></i> <span>Gallery</span></a></li>
-                    <li class="nav-item"><a href="index.html#contact" class="nav-link"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
-                </ul>
-            </div>
-            
-            <!-- Call to Action Buttons -->
-            <div class="nav-cta">
-                <a href="https://wa.me/254705455312" class="whatsapp-btn pulse-glow" target="_blank" title="Chat on WhatsApp">
-                    <i class="fab fa-whatsapp"></i>
-                    <span class="btn-text">Chat Now</span>
-                </a>
-                <a href="tel:0705455312" class="call-btn" title="Call Salon">
-                    <i class="fas fa-phone"></i>
-                </a>
-            </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div class="mobile-menu glass-card">
-            <ul class="mobile-nav-list">
-                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="services-products.html"><i class="fas fa-concierge-bell"></i> Services & Products</a></li>
-                <li><a href="#" class="active"><i class="fas fa-calendar-check"></i> Book Appointment</a></li>
-                <li><a href="index.html#gallery"><i class="fas fa-images"></i> Gallery</a></li>
-                <li><a href="index.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-                <li><a href="index.html#admin-login"><i class="fas fa-lock"></i> Admin Login</a></li>
-            </ul>
-            <div class="mobile-contact">
-                <a href="tel:0705455312" class="mobile-call-btn">
-                    <i class="fas fa-phone"></i> Call: 0705 455 312
-                </a>
-                <a href="https://wa.me/254705455312" class="mobile-whatsapp-btn" target="_blank">
-                    <i class="fab fa-whatsapp"></i> WhatsApp Chat
-                </a>
-            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </nav>
-    
+
     <!-- Main Content -->
-    <main class="booking-page">
-        <!-- Booking Header -->
-        <section class="booking-header">
-            <div class="container">
-                <div class="header-content">
-                    <h1 class="page-title">
-                        <span class="title-line">Book Your</span>
-                        <span class="title-line accent">Beauty Appointment</span>
-                    </h1>
-                    <p class="page-subtitle">Schedule your transformation with our expert beauty artists</p>
-                    
-                    <!-- Booking Progress -->
-                    <div class="booking-progress">
-                        <div class="progress-step active" data-step="1">
-                            <div class="step-circle">1</div>
-                            <div class="step-label">Service</div>
-                        </div>
-                        <div class="progress-line"></div>
-                        <div class="progress-step" data-step="2">
-                            <div class="step-circle">2</div>
-                            <div class="step-label">Date & Time</div>
-                        </div>
-                        <div class="progress-line"></div>
-                        <div class="progress-step" data-step="3">
-                            <div class="step-circle">3</div>
-                            <div class="step-label">Details</div>
-                        </div>
-                        <div class="progress-line"></div>
-                        <div class="progress-step" data-step="4">
-                            <div class="step-circle">4</div>
-                            <div class="step-label">Confirm</div>
-                        </div>
-                    </div>
-                </div>
+    <main class="booking-container">
+        <!-- Page Header -->
+        <header class="page-header">
+            <h1>Book an <span class="pink-text">Appointment</span></h1>
+            <p>Schedule your beauty treatment with our professionals</p>
+        </header>
+
+        <!-- Booking Steps -->
+        <div class="booking-steps">
+            <div class="step active" data-step="1">
+                <div class="step-number">1</div>
+                <div class="step-text">Select Service</div>
             </div>
-        </section>
-        
-        <!-- Booking Wizard -->
-        <section class="booking-wizard">
-            <div class="container">
-                <form id="bookingForm" class="booking-form glass-card">
-                    <!-- Step 1: Service Selection -->
-                    <div class="booking-step active" data-step="1">
-                        <div class="step-header">
-                            <h2><i class="fas fa-concierge-bell"></i> Select Service</h2>
-                            <p>Choose the beauty service you'd like to book</p>
-                        </div>
-                        
-                        <div class="service-selection">
-                            <div class="service-categories">
-                                <div class="category-tabs">
-                                    <button type="button" class="category-tab active" data-category="all">All Services</button>
-                                    <button type="button" class="category-tab" data-category="hair">Hair</button>
-                                    <button type="button" class="category-tab" data-category="skincare">Skincare</button>
-                                    <button type="button" class="category-tab" data-category="makeup">Makeup</button>
-                                    <button type="button" class="category-tab" data-category="nails">Nails</button>
-                                </div>
-                                
-                                <div class="services-grid" id="servicesGrid">
-                                    <!-- Services loaded dynamically -->
-                                </div>
-                            </div>
-                            
-                            <div class="selected-service-preview glass-card">
-                                <div class="preview-header">
-                                    <h3>Selected Service</h3>
-                                    <div class="preview-actions">
-                                        <button type="button" class="clear-selection">
-                                            <i class="fas fa-times"></i>
-                                            Clear
-                                        </button>
-                                    </div>
-                                </div>
-                                
-                                <div class="preview-content" id="selectedServicePreview">
-                                    <div class="no-selection">
-                                        <i class="fas fa-hand-pointer"></i>
-                                        <p>Select a service to continue</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="step-actions">
-                            <button type="button" class="btn-next" data-next="2">
-                                Next: Date & Time
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Step 2: Date & Time Selection -->
-                    <div class="booking-step" data-step="2">
-                        <div class="step-header">
-                            <h2><i class="fas fa-calendar-alt"></i> Select Date & Time</h2>
-                            <p>Choose your preferred appointment date and time</p>
-                        </div>
-                        
-                        <div class="datetime-selection">
-                            <div class="calendar-container glass-card">
-                                <div class="calendar-header">
-                                    <h4>Select Date</h4>
-                                    <div class="calendar-nav">
-                                        <button type="button" class="nav-btn prev-month">
-                                            <i class="fas fa-chevron-left"></i>
-                                        </button>
-                                        <span class="current-month">January 2024</span>
-                                        <button type="button" class="nav-btn next-month">
-                                            <i class="fas fa-chevron-right"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="calendar" id="bookingCalendar">
-                                    <!-- Calendar generated by JavaScript -->
-                                </div>
-                            </div>
-                            
-                            <div class="time-selection-container glass-card">
-                                <div class="time-header">
-                                    <h4>Available Time Slots</h4                                   </label>
-                                    <select id="preferredStylist">
-                                        <option value="">Any available stylist</option>
-                                        <option value="jane">Jane - Hair Specialist</option>
-                                        <option value="sarah">Sarah - Makeup Artist</option>
-                                        <option value="mary">Mary - Skincare Expert</option>
-                                        <option value="lisa">Lisa - Nail Technician</option>
-                                    </select>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="specialRequests">
-                                    <i class="fas fa-edit"></i>
-                                    Special Requests / Notes
-                                </label>
-                                <textarea id="specialRequests" placeholder="Any special requirements, allergies, or additional notes..." rows="4"></textarea>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" id="acceptTerms" required>
-                                    <span class="checkbox-custom"></span>
-                                    I agree to the salon's terms and conditions
-                                </label>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" id="receiveUpdates">
-                                    <span class="checkbox-custom"></span>
-                                    I'd like to receive updates about promotions and services via WhatsApp
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <div class="step-actions">
-                            <button type="button" class="btn-prev" data-prev="2">
-                                <i class="fas fa-arrow-left"></i>
-                                Back to Date & Time
-                            </button>
-                            <button type="button" class="btn-next" data-next="4">
-                                Next: Confirmation
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Step 4: Confirmation -->
-                    <div class="booking-step" data-step="4">
-                        <div class="step-header">
-                            <h2><i class="fas fa-check-circle"></i> Confirm Booking</h2>
-                            <p>Review and confirm your appointment details</p>
-                        </div>
-                        
-                        <div class="confirmation-summary">
-                            <div class="summary-card glass-card">
-                                <h3><i class="fas fa-concierge-bell"></i> Service Details</h3>
-                                <div class="summary-item" id="summaryService">
-                                    <div class="summary-label">Service:</div>
-                                    <div class="summary-value">No service selected</div>
-                                </div>
-                                <div class="summary-item" id="summaryPrice">
-                                    <div class="summary-label">Price:</div>
-                                    <div class="summary-value">-</div>
-                                </div>
-                            </div>
-                            
-                            <div class="summary-card glass-card">
-                                <h3><i class="fas fa-calendar-alt"></i> Date & Time</h3>
-                                <div class="summary-item" id="summaryDate">
-                                    <div class="summary-label">Date:</div>
-                                    <div class="summary-value">No date selected</div>
-                                </div>
-                                <div class="summary-item" id="summaryTime">
-                                    <div class="summary-label">Time:</div>
-                                    <div class="summary-value">No time selected</div>
-                                </div>
-                            </div>
-                            
-                            <div class="summary-card glass-card">
-                                <h3><i class="fas fa-user"></i> Personal Details</h3>
-                                <div class="summary-item" id="summaryName">
-                                    <div class="summary-label">Name:</div>
-                                    <div class="summary-value">-</div>
-                                </div>
-                                <div class="summary-item" id="summaryPhone">
-                                    <div class="summary-label">Phone:</div>
-                                    <div class="summary-value">-</div>
-                                </div>
-                                <div class="summary-item" id="summaryStylist">
-                                    <div class="summary-label">Stylist:</div>
-                                    <div class="summary-value">Any available</div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="booking-notes glass-card">
-                            <h3><i class="fas fa-info-circle"></i> Important Notes</h3>
-                            <ul class="notes-list">
-                                <li><i class="fas fa-check-circle"></i> Please arrive 10 minutes before your appointment</li>
-                                <li><i class="fas fa-check-circle"></i> Cancellations must be made 24 hours in advance</li>
-                                <li><i class="fas fa-check-circle"></i> Late arrivals may result in shortened service time</li>
-                                <li><i class="fas fa-check-circle"></i> A deposit may be required for certain services</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="step-actions">
-                            <button type="button" class="btn-prev" data-prev="3">
-                                <i class="fas fa-arrow-left"></i>
-                                Edit Details
-                            </button>
-                            <button type="submit" class="btn-confirm neon-btn">
-                                <i class="fas fa-calendar-check"></i>
-                                Confirm & Book Appointment
-                            </button>
-                        </div>
-                    </div>
-                </form>
-                
-                <!-- WhatsApp Booking Alternative -->
-                <div class="whatsapp-booking glass-card">
-                    <div class="whatsapp-header">
-                        <div class="whatsapp-icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <div class="whatsapp-content">
-                            <h3>Prefer WhatsApp Booking?</h3>
-                            <p>Book directly via WhatsApp for faster response</p>
-                        </div>
-                    </div>
-                    <div class="whatsapp-actions">
-                        <a href="https://wa.me/254705455312?text=Hello! I'd like to book an appointment at GlamourGlow Salon" 
-                           class="whatsapp-btn neon-btn" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                            Book via WhatsApp
-                        </a>
-                        <button class="copy-number-btn">
-                            <i class="fas fa-copy"></i>
-                            Copy Number
-                        </button>
-                    </div>
-                </div>
+            <div class="step" data-step="2">
+                <div class="step-number">2</div>
+                <div class="step-text">Choose Date & Time</div>
             </div>
-        </section>
-        
-        <!-- Salon Working Hours -->
-        <section class="working-hours">
-            <div class="container">
-                <div class="hours-container glass-card">
-                    <div class="hours-header">
-                        <h2><i class="fas fa-clock"></i> Salon Hours</h2>
-                        <p>Our operating schedule</p>
-                    </div>
-                    
-                    <div class="hours-grid">
-                        <div class="day-card">
-                            <div class="day-name">Monday - Friday</div>
-                            <div class="day-hours">8:00 AM - 7:00 PM</div>
-                            <div class="day-status open">Open</div>
-                        </div>
-                        <div class="day-card">
-                            <div class="day-name">Saturday</div>
-                            <div class="day-hours">8:00 AM - 6:00 PM</div>
-                            <div class="day-status open">Open</div>
-                        </div>
-                        <div class="day-card">
-                            <div class="day-name">Sunday</div>
-                            <div class="day-hours">10:00 AM - 4:00 PM</div>
-                            <div class="day-status open">Open</div>
-                        </div>
-                        <div class="day-card holiday">
-                            <div class="day-name">Public Holidays</div>
-                            <div class="day-hours">10:00 AM - 3:00 PM</div>
-                            <div class="day-status limited">Limited Hours</div>
-                        </div>
-                    </div>
-                    
-                    <div class="hours-note">
-                        <p><i class="fas fa-info-circle"></i> Last appointment is 1 hour before closing</p>
-                    </div>
-                </div>
+            <div class="step" data-step="3">
+                <div class="step-number">3</div>
+                <div class="step-text">Your Details</div>
             </div>
-        </section>
-    </main>
-    
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <!-- Footer Logo & Info -->
-                <div class="footer-col footer-about">
-                    <div class="footer-logo">
-                        <div class="logo-icon">
-                            <i class="fas fa-spa"></i>
-                        </div>
-                        <div class="logo-text">
-                            <span class="logo-main">Glamour</span>
-                            <span class="logo-accent">Glow</span>
-                        </div>
-                    </div>
-                    <p class="footer-description">
-                        Book your beauty transformation with our expert team. 
-                        We offer premium hair, makeup, skincare, and nail services.
-                    </p>
-                    
-                    <div class="footer-actions">
-                        <a href="tel:0705455312" class="footer-btn">
-                            <i class="fas fa-phone"></i>
-                            Call Now
-                        </a>
-                        <a href="https://wa.me/254705455312" class="footer-btn whatsapp" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                            Chat Now
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Quick Links -->
-                <div class="footer-col footer-links">
-                    <h4 class="footer-title">Quick Links</h4>
-                    <ul class="footer-list">
-                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="services-products.html"><i class="fas fa-chevron-right"></i> Services & Products</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Book Appointment</a></li>
-                        <li><a href="index.html#gallery"><i class="fas fa-chevron-right"></i> Gallery</a></li>
-                        <li><a href="index.html#contact"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Contact Info -->
-                <div class="footer-col footer-contact">
-                    <h4 class="footer-title">Contact Info</h4>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <strong>Address</strong>
-                                <p>Nyeri Town Center<br>Nyeri, Kenya</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <strong>Phone</strong>
-                                <p>0705 455 312</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <strong>Hours</strong>
-                                <p>Mon-Fri: 8am-7pm<br>Sat: 8am-6pm<br>Sun: 10am-4pm</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Footer Bottom -->
-            <div class="footer-bottom">
-                <div class="footer-bottom-content">
-                    <div class="copyright">
-                        <p>&copy; 2024 GlamourGlow Beauty Salon. All rights reserved.</p>
-                    </div>
-                    
-                    <div class="back-to-top">
-                        <button id="backToTop" class="back-top-btn">
-                            <i class="fas fa-arrow-up"></i>
-                        </button>
-                    </div>
-                </div>
+            <div class="step" data-step="4">
+                <div class="step-number">4</div>
+                <div class="step-text">Confirmation</div>
             </div>
         </div>
-    </footer>
-    
-    <!-- Booking Success Modal -->
-    <div class="booking-modal" id="successModal">
-        <div class="modal-overlay"></div>
-        <div class="modal-content glass-card">
-            <div class="modal-success">
+
+        <!-- Booking Form -->
+        <form id="booking-form" class="booking-form">
+            <!-- Step 1: Service Selection -->
+            <div class="booking-step active" id="step-1">
+                <h2><i class="fas fa-spa"></i> Select Service</h2>
+                <p class="step-description">Choose from our professional beauty services</p>
+                
+                <div class="services-grid" id="services-grid">
+                    <!-- Services loaded from backend -->
+                    <div class="loading-spinner">
+                        <div class="spinner"></div>
+                        <p>Loading services...</p>
+                    </div>
+                </div>
+                
+                <div class="step-actions">
+                    <button type="button" class="next-step" data-next="2">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Step 2: Date & Time -->
+            <div class="booking-step" id="step-2">
+                <h2><i class="fas fa-calendar-alt"></i> Choose Date & Time</h2>
+                <p class="step-description">Select your preferred appointment slot</p>
+                
+                <div class="datetime-selection">
+                    <div class="date-selection">
+                        <label for="booking-date"><i class="fas fa-calendar"></i> Select Date</label>
+                        <input type="text" id="booking-date" placeholder="Choose a date" readonly>
+                        <small>We're open Mon-Sat, 8AM-8PM</small>
+                    </div>
+                    
+                    <div class="time-slots" id="time-slots">
+                        <label><i class="fas fa-clock"></i> Available Time Slots</label>
+                        <div class="slots-grid">
+                            <!-- Time slots will be generated here -->
+                            <p class="no-slots">Please select a date first</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-actions">
+                    <button type="button" class="prev-step" data-prev="1"><i class="fas fa-arrow-left"></i> Back</button>
+                    <button type="button" class="next-step" data-next="3">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Step 3: Personal Details -->
+            <div class="booking-step" id="step-3">
+                <h2><i class="fas fa-user"></i> Your Details</h2>
+                <p class="step-description">Tell us how we can reach you</p>
+                
+                <div class="personal-details">
+                    <div class="form-group">
+                        <label for="customer-name"><i class="fas fa-user"></i> Full Name *</label>
+                        <input type="text" id="customer-name" required placeholder="Enter your full name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customer-phone"><i class="fas fa-phone"></i> Phone Number *</label>
+                        <input type="tel" id="customer-phone" required placeholder="0700 000 000" value="0705455312">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customer-email"><i class="fas fa-envelope"></i> Email Address</label>
+                        <input type="email" id="customer-email" placeholder="your@email.com">
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="special-notes"><i class="fas fa-sticky-note"></i> Special Requests</label>
+                        <textarea id="special-notes" rows="3" placeholder="Any allergies, preferences, or special requirements..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="appointment-summary">
+                    <h4><i class="fas fa-clipboard-list"></i> Appointment Summary</h4>
+                    <div class="summary-details">
+                        <div class="summary-item">
+                            <span>Service:</span>
+                            <span id="summary-service">Not selected</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Date:</span>
+                            <span id="summary-date">Not selected</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Time:</span>
+                            <span id="summary-time">Not selected</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Duration:</span>
+                            <span id="summary-duration">-</span>
+                        </div>
+                        <div class="summary-item total">
+                            <span>Price:</span>
+                            <span id="summary-price">Ksh 0</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-actions">
+                    <button type="button" class="prev-step" data-prev="2"><i class="fas fa-arrow-left"></i> Back</button>
+                    <button type="button" class="next-step" data-next="4">Review Booking <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Step 4: Confirmation -->
+            <div class="booking-step" id="step-4">
+                <h2><i class="fas fa-check-circle"></i> Confirm Booking</h2>
+                <p class="step-description">Review and confirm your appointment</p>
+                
+                <div class="confirmation-details">
+                    <div class="confirmation-card">
+                        <div class="confirmation-header">
+                            <i class="fas fa-calendar-check"></i>
+                            <h3>Appointment Details</h3>
+                        </div>
+                        <div class="confirmation-body">
+                            <div class="detail-row">
+                                <i class="fas fa-spa"></i>
+                                <div>
+                                    <strong>Service</strong>
+                                    <p id="confirm-service">-</p>
+                                </div>
+                            </div>
+                            <div class="detail-row">
+                                <i class="fas fa-calendar-alt"></i>
+                                <div>
+                                    <strong>Date & Time</strong>
+                                    <p id="confirm-datetime">-</p>
+                                </div>
+                            </div>
+                            <div class="detail-row">
+                                <i class="fas fa-user"></i>
+                                <div>
+                                    <strong>Customer</strong>
+                                    <p id="confirm-customer">-</p>
+                                </div>
+                            </div>
+                            <div class="detail-row">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <strong>Contact</strong>
+                                    <p id="confirm-contact">-</p>
+                                </div>
+                            </div>
+                            <div class="detail-row">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <div>
+                                    <strong>Amount Due</strong>
+                                    <p class="confirm-price" id="confirm-price">Ksh 0</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="booking-notes">
+                        <h4><i class="fas fa-info-circle"></i> Important Notes</h4>
+                        <ul>
+                            <li>Please arrive 10 minutes before your appointment</li>
+                            <li>Cancellations require 24 hours notice</li>
+                            <li>Bring any reference photos for hairstyles</li>
+                            <li>Payment is due at the time of service</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="confirmation-actions">
+                    <button type="button" class="prev-step" data-prev="3"><i class="fas fa-arrow-left"></i> Back</button>
+                    <button type="submit" class="submit-booking">
+                        <i class="fas fa-paper-plane"></i> Confirm & Book Appointment
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Booking Success Modal -->
+        <div class="modal-overlay" id="success-modal">
+            <div class="modal-content success-modal">
                 <div class="success-icon">
                     <i class="fas fa-check-circle"></i>
                 </div>
-                <h3>Booking Successful!</h3>
-                <p>Your appointment has been booked successfully. Check your WhatsApp for confirmation details.</p>
+                <h3>Appointment Booked Successfully! 🎉</h3>
+                <p id="success-message">Your appointment has been confirmed.</p>
                 
                 <div class="success-details">
-                    <div class="detail-item">
-                        <strong>Appointment ID:</strong>
-                        <span id="bookingId">GG-2024-001</span>
-                    </div>
-                    <div class="detail-item">
-                        <strong>Service:</strong>
-                        <span id="modalService">-</span>
-                    </div>
-                    <div class="detail-item">
-                        <strong>Date & Time:</strong>
-                        <span id="modalDateTime">-</span>
-                    </div>
+                    <p><strong>Reference #:</strong> <span id="booking-reference">-</span></p>
+                    <p><strong>Date:</strong> <span id="success-date">-</span></p>
+                    <p><strong>Time:</strong> <span id="success-time">-</span></p>
                 </div>
                 
-                <div class="modal-actions">
-                    <button class="modal-close-btn">Close</button>
-                    <a href="https://wa.me/254705455312" class="whatsapp-confirm-btn" target="_blank">
-                        <i class="fab fa-whatsapp"></i>
-                        Confirm via WhatsApp
-                    </a>
+                <div class="success-actions">
+                    <button class="action-btn" id="add-to-calendar">
+                        <i class="fas fa-calendar-plus"></i> Add to Calendar
+                    </button>
+                    <button class="action-btn whatsapp-btn" id="whatsapp-reminder">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Reminder
+                    </button>
+                    <button class="action-btn secondary" id="new-booking">
+                        <i class="fas fa-plus"></i> New Booking
+                    </button>
+                </div>
+                
+                <div class="success-note">
+                    <p><i class="fas fa-info-circle"></i> You'll receive a confirmation SMS shortly</p>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <!-- JavaScript Files -->
-    <script src="js/main.js"></script>
-    <script src="js/booking.js"></script>
-    <!-- Flatpickr for calendar -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4><i class="fas fa-crown"></i> Salon Elegance</h4>
+                <p>Premium beauty services by appointment</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="tel:0705455312"><i class="fas fa-phone"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Working Hours</h4>
+                <p><strong>Mon - Fri:</strong> 8:00 AM - 8:00 PM</p>
+                <p><strong>Saturday:</strong> 9:00 AM - 6:00 PM</p>
+                <p><strong>Sunday:</strong> Closed</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Location</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+                <p><i class="fas fa-phone"></i> 0705 455 312</p>
+                <p><i class="fas fa-envelope"></i> info@salonelegance.com</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Salon Elegance. All appointments subject to availability.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="js/booking.js"></script>
 </body>
 </html>
