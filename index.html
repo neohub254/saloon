@@ -1063,7 +1063,107 @@
         </div>
     </footer>
 
+<!-- Floating Basket Button (Optional) -->
+<button class="floating-basket-btn" id="floating-basket-btn">
+    <i class="fas fa-shopping-basket"></i>
+    <span class="floating-count" id="floating-count">0</span>
+</button>
 
+<script>
+// Floating basket button functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const floatingBtn = document.getElementById('floating-basket-btn');
+    const basketSidebar = document.getElementById('basket-sidebar');
+    
+    if (floatingBtn) {
+        floatingBtn.addEventListener('click', function() {
+            // Open the existing basket sidebar
+            basketSidebar.classList.add('active');
+        });
+        
+        // Update count
+        function updateFloatingCount() {
+            const basketCount = document.getElementById('basket-count');
+            const floatingCount = document.getElementById('floating-count');
+            if (basketCount && floatingCount) {
+                floatingCount.textContent = basketCount.textContent;
+                floatingCount.style.display = basketCount.textContent === '0' ? 'none' : 'flex';
+            }
+        }
+        
+        // Initial update
+        updateFloatingCount();
+        
+        // Update when basket changes (listen to your basket.js updates)
+        setInterval(updateFloatingCount, 1000);
+    }
+});
+
+// Add CSS for floating button
+const floatingCSS = `
+.floating-basket-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
+    border-radius: 50%;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(255, 20, 147, 0.3);
+    z-index: 998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.floating-basket-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(255, 20, 147, 0.4);
+}
+
+.floating-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ff4757;
+    color: white;
+    font-size: 0.7rem;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border: 2px solid var(--card-bg);
+}
+
+@media (max-width: 768px) {
+    .floating-basket-btn {
+        bottom: 5rem; /* Above mobile menu */
+        right: 1rem;
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .floating-count {
+        width: 18px;
+        height: 18px;
+        font-size: 0.6rem;
+    }
+}
+`;
+
+const floatingStyle = document.createElement('style');
+floatingStyle.textContent = floatingCSS;
+document.head.appendChild(floatingStyle);
+</script>
     <!-- Admin Dashboard Link -->
 <a href="admin.html" class="admin-link">
     <i class="fas fa-user-shield"></i>
@@ -1075,3 +1175,4 @@
     <script src="js/animations.js"></script>
 </body>
 </html>
+
