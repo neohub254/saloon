@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salon Elegance | Products & Services</title>
+    <link rel="stylesheet" href="css/products-main.css">
+    <link rel="stylesheet" href="css/products-animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-crown"></i>
+                <span>Salon</span>Elegance
+            </a>
+            
+            <div class="nav-links">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="products-services.html" class="active"><i class="fas fa-store"></i> Shop</a>
+                <a href="booking.html"><i class="fas fa-calendar-check"></i> Book</a>
+                <a href="#basket" class="basket-icon" id="basket-toggle">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span class="basket-count" id="basket-count">0</span>
+                </a>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Page Header -->
+        <header class="page-header">
+            <h1>Our <span class="pink-text">Products & Services</span></h1>
+            <p>Discover premium beauty products and professional services</p>
+            
+            <!-- View Toggle -->
+            <div class="view-toggle">
+                <button class="toggle-btn active" data-view="products">
+                    <i class="fas fa-shopping-bag"></i> Products
+                </button>
+                <button class="toggle-btn" data-view="services">
+                    <i class="fas fa-spa"></i> Services
+                </button>
+            </div>
+        </header>
+
+        <!-- Category Filter -->
+        <div class="category-filter">
+            <button class="category-btn active" data-category="all">All</button>
+            <button class="category-btn" data-category="wigs">Wigs & Extensions</button>
+            <button class="category-btn" data-category="clothes">Clothes</button>
+            <button class="category-btn" data-category="beauty">Beauty</button>
+            <button class="category-btn" data-category="shukas">Shukas</button>
+            <button class="category-btn" data-category="bags">Bags</button>
+            <button class="category-btn" data-category="hair">Hair Services</button>
+            <button class="category-btn" data-category="skin">Skin Care</button>
+            <button class="category-btn" data-category="nails">Nails</button>
+        </div>
+
+        <!-- Search Box -->
+        <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input type="text" id="search-input" placeholder="Search products or services...">
+        </div>
+
+        <!-- Products/Services Grid -->
+        <div class="content-grid" id="content-grid">
+            <!-- Products will be loaded here dynamically -->
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+                <p>Loading beautiful items...</p>
+            </div>
+        </div>
+
+        <!-- Basket Sidebar -->
+        <div class="basket-sidebar" id="basket-sidebar">
+            <div class="basket-header">
+                <h3><i class="fas fa-shopping-basket"></i> Your Basket</h3>
+                <button class="close-basket" id="close-basket">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="basket-items" id="basket-items">
+                <!-- Basket items will be loaded here -->
+                <div class="empty-basket">
+                    <i class="fas fa-shopping-basket"></i>
+                    <p>Your basket is empty</p>
+                    <p class="small-text">Add some beautiful items!</p>
+                </div>
+            </div>
+            
+            <div class="basket-footer">
+                <div class="basket-total">
+                    <span>Total:</span>
+                    <span class="total-amount" id="basket-total">Ksh 0</span>
+                </div>
+                
+                <div class="basket-actions">
+                    <button class="clear-btn" id="clear-basket">
+                        <i class="fas fa-trash"></i> Clear
+                    </button>
+                    <button class="order-btn" id="checkout-btn">
+                        <i class="fas fa-shopping-cart"></i> Proceed to Order
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Order Modal -->
+    <div class="modal-overlay" id="order-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Complete Your Order</h3>
+                <button class="close-modal" id="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="order-summary" id="order-summary">
+                    <!-- Order items will be here -->
+                </div>
+                
+                <div class="order-total">
+                    <h4>Order Total: <span id="order-total">Ksh 0</span></h4>
+                </div>
+                
+                <div class="order-methods">
+                    <p class="method-title">Choose how to place your order:</p>
+                    
+                    <button class="order-method-btn whatsapp-btn" id="whatsapp-order">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <strong>Order via WhatsApp</strong>
+                            <small>Instant confirmation</small>
+                        </div>
+                    </button>
+                    
+                    <button class="order-method-btn sms-btn" id="sms-order">
+                        <i class="fas fa-sms"></i>
+                        <div>
+                            <strong>Order via SMS</strong>
+                            <small>Text message</small>
+                        </div>
+                    </button>
+                    
+                    <button class="order-method-btn call-btn" id="call-order">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Call to Order</strong>
+                            <small>Direct consultation</small>
+                        </div>
+                    </button>
+                </div>
+                
+                <div class="customer-info">
+                    <h4>Your Contact Info</h4>
+                    <input type="text" id="customer-name" placeholder="Your Name">
+                    <input type="tel" id="customer-phone" placeholder="Your Phone Number" value="0705455312">
+                    <small class="note">We'll contact you to confirm your order</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div class="modal-overlay" id="quickview-modal">
+        <div class="modal-content quickview-content">
+            <!-- Quick view content will be loaded here -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4><i class="fas fa-crown"></i> Salon Elegance</h4>
+                <p>Premium beauty products and professional services in Kenya</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fas fa-phone"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="products-services.html">Products & Services</a>
+                <a href="booking.html">Book Appointment</a>
+                <a href="admin.html">Admin Login</a>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-phone"></i> 0705 455 312</p>
+                <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+                <p><i class="fas fa-clock"></i> Mon-Sat: 8AM-8PM</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Salon Elegance. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/basket.js"></script>
+    <script src="js/products.js"></script>
+</body>
+</html>
