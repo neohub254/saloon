@@ -936,8 +936,196 @@ function showSampleData() {
     renderItems();
     showNotification('Using sample data. Backend connection required for full features.', 'info');
 }
+// ====== MOBILE MENU FIX ======
+document.addEventListener('DOMContentLoaded', function() {
+    // Fix for mobile menu button
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            // Toggle the mobile menu
+            navLinks.classList.toggle('mobile-active');
+            mobileMenuBtn.classList.toggle('active');
+            
+            // Update icon
+            const icon = mobileMenuBtn.querySelector('i');
+            if (navLinks.classList.contains('mobile-active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close menu when clicking a link (on mobile)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navLinks.classList.remove('mobile-active');
+                    mobileMenuBtn.classList.remove('active');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+    }
+    
+    // Close menu when clicking outside (mobile only)
+    document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768 && 
+            navLinks && navLinks.classList.contains('mobile-active') &&
+            !navLinks.contains(e.target) && 
+            mobileMenuBtn && !mobileMenuBtn.contains(e.target)) {
+            navLinks.classList.remove('mobile-active');
+            if (mobileMenuBtn) {
+                mobileMenuBtn.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+    });
+    
+    // Basket toggle fix
+    const basketToggle = document.getElementById('basket-toggle');
+    const basketSidebar = document.getElementById('basket-sidebar');
+    const closeBasket = document.getElementById('close-basket');
+    
+    if (basketToggle) {
+        basketToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            basketSidebar.classList.add('active');
+        });
+    }
+    
+    if (closeBasket) {
+        closeBasket.addEventListener('click', function() {
+            basketSidebar.classList.remove('active');
+        });
+    }
+    
+    // Close basket when clicking outside
+    document.addEventListener('click', function(e) {
+        if (basketSidebar && basketSidebar.classList.contains('active')) {
+            if (!basketSidebar.contains(e.target) && 
+                !basketToggle.contains(e.target)) {
+                basketSidebar.classList.remove('active');
+            }
+        }
+    });
+    
+    // Handle escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            if (basketSidebar && basketSidebar.classList.contains('active')) {
+                basketSidebar.classList.remove('active');
+            }
+            if (navLinks && navLinks.classList.contains('mobile-active')) {
+                navLinks.classList.remove('mobile-active');
+                mobileMenuBtn.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+    });
+});
+
+// Add CSS for mobile menu
+const mobileCSS = `
+/* Mobile menu styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--card-bg);
+        padding: 1rem;
+        flex-direction: column;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        border-top: 1px solid var(--border-color);
+    }
+    
+    .nav-links.mobile-active {
+        display: flex !important;
+        animation: slideDown 0.3s ease;
+    }
+    
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .nav-links a {
+        padding: 1rem;
+        margin: 0.25rem 0;
+        border-radius: 8px;
+        justify-content: flex-start;
+        width: 100%;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .mobile-menu-btn.active i {
+        color: var(--primary-pink);
+    }
+}
+
+/* Make basket toggle work as link */
+.basket-icon {
+    cursor: pointer;
+}
+
+.basket-sidebar.active {
+    right: 0;
+}
+
+/* Handle resizing */
+window.addEventListener('resize', function() {
+    const navLinks = document.querySelector('.nav-links');
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    
+    if (window.innerWidth > 768) {
+        navLinks.classList.remove('mobile-active');
+        navLinks.style.display = 'flex';
+        if (mobileMenuBtn) {
+            mobileMenuBtn.classList.remove('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    } else {
+        if (!navLinks.classList.contains('mobile-active')) {
+            navLinks.style.display = 'none';
+        }
+    }
+});
+`;
+
+// Inject the CSS
+const style = document.createElement('style');
+style.textContent = mobileCSS;
+document.head.appendChild(style);
 
 // Make functions available globally for HTML event handlers
 window.addItemToBasket = addItemToBasket;
 window.removeBasketItem = removeBasketItem;
 window.clearBasket = clearBasket;
+
