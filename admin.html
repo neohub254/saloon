@@ -3,858 +3,1065 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard | Nyeri Beauty Salon</title>
+    <title>Salon Elegance | Admin Panel</title>
+    <link rel="stylesheet" href="css/products-main.css">
+    <link rel="stylesheet" href="css/admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/admin-dashboard.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
-<body class="admin-body">
-    <!-- Admin Sidebar -->
-    <div class="admin-sidebar" id="admin-sidebar">
-        <div class="sidebar-header">
-            <div class="admin-logo">Nyeri<span>Beauty</span> Admin</div>
-            <button class="sidebar-toggle" id="sidebar-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
+<body class="admin-page">
+    <!-- Admin Container -->
+    <div class="admin-container">
         
-        <div class="sidebar-profile">
-            <div class="profile-image">
-                <i class="fas fa-user-shield"></i>
-            </div>
-            <div class="profile-info">
-                <h4>Salon Manager</h4>
-                <span>admin@nyeribeauty.co.ke</span>
-            </div>
-        </div>
-        
-        <nav class="sidebar-nav">
-            <ul>
-                <li>
-                    <a href="#dashboard" class="active" data-section="dashboard">
-                        <i class="fas fa-tachometer-alt"></i>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#products-management" data-section="products">
-                        <i class="fas fa-box"></i>
-                        <span>Products</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#services-management" data-section="services">
-                        <i class="fas fa-spa"></i>
-                        <span>Services</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#bookings-management" data-section="bookings">
-                        <i class="fas fa-calendar-alt"></i>
-                        <span>Bookings</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#customers-management" data-section="customers">
-                        <i class="fas fa-users"></i>
-                        <span>Customers</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#gallery-management" data-section="gallery">
-                        <i class="fas fa-images"></i>
-                        <span>Gallery</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#settings" data-section="settings">
-                        <i class="fas fa-cog"></i>
-                        <span>Settings</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="index.html">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span>Back to Website</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
-    <!-- Admin Main Content -->
-    <div class="admin-main">
-        <!-- Admin Header -->
-        <header class="admin-header">
-            <div class="header-left">
-                <h1 id="page-title">Dashboard</h1>
-            </div>
-            <div class="header-right">
-                <div class="header-notifications">
-                    <button class="notification-btn">
-                        <i class="fas fa-bell"></i>
-                        <span class="notification-count">3</span>
-                    </button>
+        <!-- ====== LOGIN SECTION ====== -->
+        <div class="login-section active" id="login-section">
+            <div class="login-container">
+                <div class="login-header">
+                    <div class="admin-logo">
+                        <i class="fas fa-crown"></i>
+                        <h1>Salon<span>Admin</span></h1>
+                    </div>
+                    <p>Access the admin dashboard to manage your salon</p>
                 </div>
-                <div class="header-actions">
-                    <button class="btn-primary" id="quick-add">
-                        <i class="fas fa-plus"></i> Add New
-                    </button>
+                
+                <form class="login-form" id="login-form">
+                    <div class="form-group">
+                        <label for="admin-username">
+                            <i class="fas fa-user"></i> Username
+                        </label>
+                        <input type="text" id="admin-username" value="admin" readonly>
+                        <small>Default username: admin</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="admin-password">
+                            <i class="fas fa-lock"></i> Password
+                        </label>
+                        <div class="password-input">
+                            <input type="password" id="admin-password" placeholder="Enter admin password" required>
+                            <button type="button" class="toggle-password" id="toggle-password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <small>This panel is for admin only. Kindly </small>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="login-btn">
+                            <i class="fas fa-sign-in-alt"></i> Login to Dashboard
+                        </button>
+                    </div>
+                    
+                    <div class="login-note">
+                        <i class="fas fa-info-circle"></i>
+                        <p>This area is secured. Any harmful action may result in police case</p>
+                    </div>
+                </form>
+                
+                <div class="login-footer">
+                    <a href="index.html" class="back-to-site">
+                        <i class="fas fa-arrow-left"></i> Back to Website
+                    </a>
                 </div>
             </div>
-        </header>
-
-        <!-- Admin Content Sections -->
-        <main class="admin-content">
-            <!-- Dashboard Section -->
-            <section class="admin-section active" id="dashboard-section">
-                <div class="dashboard-stats">
-                    <div class="stat-card">
-                        <div class="stat-icon">
+        </div>
+        
+        <!-- ====== DASHBOARD SECTION ====== -->
+        <div class="dashboard-section" id="dashboard-section">
+            <!-- Dashboard Header -->
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="dashboard-logo">
+                        <i class="fas fa-crown"></i>
+                        <h2>Salon<span>Dashboard</span></h2>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="admin-info">
+                        <div class="admin-avatar">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <div class="admin-details">
+                            <span class="admin-name">Administrator</span>
+                            <span class="admin-role">Owner</span>
+                        </div>
+                    </div>
+                    <button class="logout-btn" id="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </header>
+                        <!-- Main Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Sidebar -->
+                <aside class="dashboard-sidebar" id="dashboard-sidebar">
+                    <nav class="sidebar-nav">
+                        <a href="#dashboard" class="nav-item active" data-section="dashboard">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        
+                        <a href="#products" class="nav-item" data-section="products">
                             <i class="fas fa-shopping-bag"></i>
-                        </div>
-                        <div class="stat-info">
-                            <h3>Total Products</h3>
-                            <p id="total-products">12</p>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">
+                            <span>Products</span>
+                            <span class="nav-badge" id="products-count">0</span>
+                        </a>
+                        
+                        <a href="#services" class="nav-item" data-section="services">
+                            <i class="fas fa-spa"></i>
+                            <span>Services</span>
+                            <span class="nav-badge" id="services-count">0</span>
+                        </a>
+                        
+                        <a href="#bookings" class="nav-item" data-section="bookings">
                             <i class="fas fa-calendar-check"></i>
+                            <span>Bookings</span>
+                            <span class="nav-badge" id="bookings-count">0</span>
+                        </a>
+                        
+                        <a href="#orders" class="nav-item" data-section="orders">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Orders</span>
+                            <span class="nav-badge" id="orders-count">0</span>
+                        </a>
+                        
+                        <a href="#settings" class="nav-item" data-section="settings">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                        
+                        <a href="#export" class="nav-item" data-section="export">
+                            <i class="fas fa-download"></i>
+                            <span>Export Data</span>
+                        </a>
+                    </nav>
+                    
+                    <div class="sidebar-footer">
+                        <div class="system-status">
+                            <div class="status-indicator online"></div>
+                            <span>Connected to Render</span>
                         </div>
-                        <div class="stat-info">
-                            <h3>Today's Appointments</h3>
-                            <p id="today-appointments">8</p>
-                        </div>
+                        <small>Backend: beautysalon-div4.onrender.com</small>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-money-bill-wave"></i>
+                </aside>
+                
+                <!-- Main Content Area -->
+                <main class="main-content">
+                    <!-- Dashboard Overview -->
+                    <section class="content-section active" id="dashboard-content">
+                        <div class="section-header">
+                            <h3><i class="fas fa-tachometer-alt"></i> Dashboard Overview</h3>
+                            <p>Welcome to your salon management dashboard</p>
                         </div>
-                        <div class="stat-info">
-                            <h3>Monthly Revenue</h3>
-                            <p id="monthly-revenue">KSH 245,800</p>
+                        
+                        <!-- Stats Cards -->
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-icon products">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h4>Total Products</h4>
+                                    <p class="stat-number" id="stat-products">0</p>
+                                </div>
+                                <a href="#products" class="stat-link">View All <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon services">
+                                    <i class="fas fa-spa"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h4>Active Services</h4>
+                                    <p class="stat-number" id="stat-services">0</p>
+                                </div>
+                                <a href="#services" class="stat-link">View All <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon bookings">
+                                    <i class="fas fa-calendar-check"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h4>Today's Bookings</h4>
+                                    <p class="stat-number" id="stat-bookings">0</p>
+                                </div>
+                                <a href="#bookings" class="stat-link">View All <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon revenue">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h4>Total Revenue</h4>
+                                    <p class="stat-number" id="stat-revenue">Ksh 0</p>
+                                </div>
+                                <a href="#orders" class="stat-link">View Reports <i class="fas fa-arrow-right"></i></a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-users"></i>
+                        
+                        <!-- Quick Actions -->
+                        <div class="quick-actions">
+                            <h4>Quick Actions</h4>
+                            <div class="actions-grid">
+                                <button class="action-btn" data-action="add-product">
+                                    <i class="fas fa-plus-circle"></i>
+                                    <span>Add New Product</span>
+                                </button>
+                                
+                                <button class="action-btn" data-action="add-service">
+                                    <i class="fas fa-plus-circle"></i>
+                                    <span>Add New Service</span>
+                                </button>
+                                
+                                <button class="action-btn" data-action="view-bookings">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>View Today's Bookings</span>
+                                </button>
+                                
+                                <button class="action-btn" data-action="export-data">
+                                    <i class="fas fa-file-export"></i>
+                                    <span>Export All Data</span>
+                                </button>
+                            </div>
                         </div>
-                        <div class="stat-info">
-                            <h3>Total Customers</h3>
-                            <p id="total-customers">156</p>
+                        
+                        <!-- Recent Activity -->
+                        <div class="recent-activity">
+                            <h4>Recent Activity</h4>
+                            <div class="activity-list" id="activity-list">
+                                <div class="activity-item">
+                                    <i class="fas fa-info-circle"></i>
+                                    <div class="activity-content">
+                                        <p>No recent activity. Start managing your salon!</p>
+                                        <small>Just now</small>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="dashboard-charts">
-                    <div class="chart-card">
-                        <h3>Revenue Overview</h3>
-                        <div class="chart-container">
-                            <canvas id="revenueChart"></canvas>
+                    </section>
+                    
+                    <!-- Products Management -->
+                    <section class="content-section" id="products-content">
+                        <div class="section-header">
+                            <h3><i class="fas fa-shopping-bag"></i> Products Management</h3>
+                            <div class="header-actions">
+                                <button class="action-btn primary" id="add-product-btn">
+                                    <i class="fas fa-plus"></i> Add New Product
+                                </button>
+                                <button class="action-btn secondary" id="refresh-products">
+                                    <i class="fas fa-sync"></i> Refresh
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="chart-card">
-                        <h3>Popular Services</h3>
-                        <div class="chart-container">
-                            <canvas id="servicesChart"></canvas>
+                        
+                        <!-- Products Filter -->
+                        <div class="filter-bar">
+                            <div class="search-box">
+                                <i class="fas fa-search"></i>
+                                <input type="text" id="search-products" placeholder="Search products...">
+                            </div>
+                            <select id="product-category-filter">
+                                <option value="all">All Categories</option>
+                                <option value="wigs">Wigs</option>
+                                <option value="clothes">Clothes</option>
+                                <option value="beauty">Beauty Products</option>
+                                <option value="shukas">Shukas</option>
+                                <option value="bags">Bags</option>
+                            </select>
                         </div>
-                    </div>
-                </div>
-
-                <div class="dashboard-tables">
-                    <div class="table-card">
-                        <div class="table-header">
-                            <h3>Recent Bookings</h3>
-                            <a href="#bookings-management" class="view-all">View All</a>
-                        </div>
+                        
+                        <!-- Products Table -->
                         <div class="table-container">
-                            <table>
+                            <table class="data-table" id="products-table">
                                 <thead>
                                     <tr>
+                                        <th>Image</th>
+                                        <th>Name</th>
+                                        <th>Category</th>
+                                        <th>Price</th>
+                                        <th>Stock</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="products-tbody">
+                                    <!-- Products will be loaded here -->
+                                    <tr>
+                                        <td colspan="7" class="loading-row">
+                                            <div class="loading-spinner">
+                                                <div class="spinner"></div>
+                                                <p>Loading products...</p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <!-- Default Products Info -->
+                        <div class="info-box">
+                            <i class="fas fa-info-circle"></i>
+                            <div>
+                                <h5>Default Products Included</h5>
+                                <p>The system comes with 3 default beauty products. You can edit or delete them, or add your own products.</p>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Services Management -->
+                    <section class="content-section" id="services-content">
+                        <div class="section-header">
+                            <h3><i class="fas fa-spa"></i> Services Management</h3>
+                            <div class="header-actions">
+                                <button class="action-btn primary" id="add-service-btn">
+                                    <i class="fas fa-plus"></i> Add New Service
+                                </button>
+                                <button class="action-btn secondary" id="refresh-services">
+                                    <i class="fas fa-sync"></i> Refresh
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Services Table -->
+                        <div class="table-container">
+                            <table class="data-table" id="services-table">
+                                <thead>
+                                    <tr>
+                                        <th>Icon</th>
+                                        <th>Service Name</th>
+                                        <th>Category</th>
+                                        <th>Price</th>
+                                        <th>Duration</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="services-tbody">
+                                    <!-- Services will be loaded here -->
+                                    <tr>
+                                        <td colspan="7" class="loading-row">
+                                            <div class="loading-spinner">
+                                                <div class="spinner"></div>
+                                                <p>Loading services...</p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <!-- Default Services Info -->
+                        <div class="info-box">
+                            <i class="fas fa-info-circle"></i>
+                            <div>
+                                <h5>Default Services Included</h5>
+                                <p>The system comes with 2 default services. You can edit or delete them, or add your own services.</p>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Bookings Management -->
+                    <section class="content-section" id="bookings-content">
+                        <div class="section-header">
+                            <h3><i class="fas fa-calendar-check"></i> Bookings Management</h3>
+                            <div class="header-actions">
+                                <select id="booking-status-filter">
+                                    <option value="all">All Status</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="confirmed">Confirmed</option>
+                                    <option value="completed">Completed</option>
+                                    <option value="cancelled">Cancelled</option>
+                                </select>
+                                <button class="action-btn primary" id="add-booking-btn">
+                                    <i class="fas fa-plus"></i> Add Booking
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Bookings Table -->
+                        <div class="table-container">
+                            <table class="data-table" id="bookings-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
                                         <th>Customer</th>
                                         <th>Service</th>
-                                        <th>Date</th>
-                                        <th>Time</th>
+                                        <th>Date & Time</th>
+                                        <th>Contact</th>
+                                        <th>Amount</th>
                                         <th>Status</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody id="recent-bookings">
+                                <tbody id="bookings-tbody">
                                     <!-- Bookings will be loaded here -->
+                                    <tr>
+                                        <td colspan="8" class="loading-row">
+                                            <div class="loading-spinner">
+                                                <div class="spinner"></div>
+                                                <p>Loading bookings...</p>
+                                            </div>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
-                    </div>
+                    </section>
                     
-                    <div class="table-card">
-                        <div class="table-header">
-                            <h3>Low Stock Products</h3>
-                            <a href="#products-management" class="view-all">View All</a>
+                    <!-- Orders Management -->
+                    <section class="content-section" id="orders-content">
+                        <div class="section-header">
+                            <h3><i class="fas fa-shopping-cart"></i> Orders Management</h3>
+                            <div class="header-actions">
+                                <input type="date" id="orders-date-filter">
+                                <button class="action-btn secondary" id="export-orders-btn">
+                                    <i class="fas fa-file-excel"></i> Export Orders
+                                </button>
+                            </div>
                         </div>
+                        
+                        <!-- Orders Summary -->
+                        <div class="summary-cards">
+                            <div class="summary-card">
+                                <h5>Total Orders</h5>
+                                <p class="summary-number" id="total-orders">0</p>
+                            </div>
+                            <div class="summary-card">
+                                <h5>Total Revenue</h5>
+                                <p class="summary-number" id="total-revenue">Ksh 0</p>
+                            </div>
+                            <div class="summary-card">
+                                <h5>Avg. Order Value</h5>
+                                <p class="summary-number" id="avg-order">Ksh 0</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Orders Table -->
                         <div class="table-container">
-                            <table>
+                            <table class="data-table" id="orders-table">
                                 <thead>
                                     <tr>
-                                        <th>Product</th>
-                                        <th>Category</th>
-                                        <th>Stock</th>
-                                        <th>Action</th>
+                                        <th>Order ID</th>
+                                        <th>Customer</th>
+                                        <th>Items</th>
+                                        <th>Total</th>
+                                        <th>Method</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody id="low-stock-products">
-                                    <!-- Products will be loaded here -->
+                                <tbody id="orders-tbody">
+                                    <!-- Orders will be loaded here -->
+                                    <tr>
+                                        <td colspan="8" class="loading-row">
+                                            <div class="loading-spinner">
+                                                <div class="spinner"></div>
+                                                <p>Loading orders...</p>
+                                            </div>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Products Management Section -->
-            <section class="admin-section" id="products-section">
-                <div class="section-header">
-                    <h2>Products Management</h2>
-                    <button class="btn-primary" id="add-product-btn">
-                        <i class="fas fa-plus"></i> Add New Product
-                    </button>
-                </div>
-
-                <div class="products-controls">
-                    <div class="search-box">
-                        <i class="fas fa-search"></i>
-                        <input type="text" id="product-search" placeholder="Search products...">
-                    </div>
-                    <div class="filter-options">
-                        <select id="category-filter">
-                            <option value="all">All Categories</option>
-                            <option value="hair">Hair Care</option>
-                            <option value="skin">Skincare</option>
-                            <option value="makeup">Makeup</option>
-                            <option value="nails">Nail Care</option>
-                            <option value="tools">Tools</option>
-                        </select>
-                        <select id="stock-filter">
-                            <option value="all">All Stock</option>
-                            <option value="in-stock">In Stock</option>
-                            <option value="low-stock">Low Stock</option>
-                            <option value="out-of-stock">Out of Stock</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="products-table-container">
-                    <table class="products-table">
-                        <thead>
-                            <tr>
-                                <th>Image</th>
-                                <th>Name</th>
-                                <th>Category</th>
-                                <th>Price</th>
-                                <th>Stock</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="products-table-body">
-                            <!-- Products will be loaded here -->
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="pagination">
-                    <button class="page-btn" disabled>
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="page-btn active">1</button>
-                    <button class="page-btn">2</button>
-                    <button class="page-btn">3</button>
-                    <button class="page-btn">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-            </section>
-
-            <!-- Services Management Section -->
-<section class="admin-section" id="services-section">
-    <div class="section-header">
-        <h2>Services Management</h2>
-        <button class="btn-primary" id="add-service-btn">
-            <i class="fas fa-plus"></i> Add New Service
-        </button>
+                    </section>
+                    
+                    <!-- Settings -->
+                    <section class="content-section" id="settings-content">
+                        <div class="section-header">
+                            <h3><i class="fas fa-cog"></i> Settings</h3>
+                        </div>
+                        
+                        <!-- Settings Tabs -->
+                        <div class="settings-tabs">
+                            <div class="tab-buttons">
+                                <button class="tab-btn active" data-tab="general">General</button>
+                                <button class="tab-btn" data-tab="security">Security</button>
+                                <button class="tab-btn" data-tab="backup">Backup</button>
+                                <button class="tab-btn" data-tab="about">About</button>
+                            </div>
+                            
+                            <!-- General Settings -->
+                            <div class="tab-content active" id="general-tab">
+                                <h4>General Settings</h4>
+                                <form class="settings-form" id="general-settings">
+                                    <div class="form-group">
+                                        <label for="salon-name">Salon Name</label>
+                                        <input type="text" id="salon-name" value="Salon Elegance">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="salon-phone">Phone Number</label>
+                                        <input type="tel" id="salon-phone" value="0705455312">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="salon-email">Email Address</label>
+                                        <input type="email" id="salon-email" placeholder="info@salonelegance.com">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="salon-address">Address</label>
+                                        <textarea id="salon-address" rows="2" placeholder="Enter salon address"></textarea>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="working-hours">Working Hours</label>
+                                        <input type="text" id="working-hours" value="Mon-Sat: 8AM-8PM">
+                                    </div>
+                                    
+                                    <button type="submit" class="save-btn">
+                                        <i class="fas fa-save"></i> Save Changes
+                                    </button>
+                                </form>
+                            </div>
+                            
+                            <!-- Security Settings -->
+                            <div class="tab-content" id="security-tab">
+                                <h4>Change Admin Password</h4>
+                                <form class="settings-form" id="password-form">
+                                    <div class="form-group">
+                                        <label for="current-password">Current Password</label>
+                                        <input type="password" id="current-password" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="new-password">New Password</label>
+                                        <input type="password" id="new-password" required minlength="6">
+                                        <small>Minimum 6 characters</small>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="confirm-password">Confirm New Password</label>
+                                        <input type="password" id="confirm-password" required>
+                                    </div>
+                                    
+                                    <div class="form-actions">
+                                        <button type="submit" class="save-btn">
+                                            <i class="fas fa-key"></i> Change Password
+                                        </button>
+                                    </div>
+                                </form>
+                                
+                                <div class="security-note">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <div>
+                                        <h5>Security Tips</h5>
+                                        <ul>
+                                            <li>Use a strong, unique password</li>
+                                            <li>Change password regularly</li>
+                                            <li>Never share your admin credentials</li>
+                                            <li>Log out when not using the dashboard</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Backup Settings -->
+                            <div class="tab-content" id="backup-tab">
+                                <h4>Data Backup & Restore</h4>
+                                
+                                <div class="backup-actions">
+                                    <button class="action-btn" id="backup-now">
+                                        <i class="fas fa-database"></i> Create Backup Now
+                                    </button>
+                                    
+                                    <button class="action-btn secondary" id="download-backup">
+                                        <i class="fas fa-download"></i> Download Backup
+                                    </button>
+                                    
+                                    <div class="file-upload">
+                                        <label for="restore-file">Restore from Backup</label>
+                                        <input type="file" id="restore-file" accept=".json">
+                                        <button class="action-btn" id="restore-btn">Restore</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="backup-info">
+                                    <h5>Last Backups</h5>
+                                    <div class="backup-list" id="backup-list">
+                                        <div class="backup-item">
+                                            <i class="fas fa-history"></i>
+                                            <div>
+                                                <p>No backups created yet</p>
+                                                <small>Create your first backup</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- About Tab -->
+                            <div class="tab-content" id="about-tab">
+                                <div class="about-content">
+                                    <div class="about-logo">
+                                        <i class="fas fa-crown"></i>
+                                        <h4>Salon Elegance Admin</h4>
+                                    </div>
+                                    
+                                    <div class="about-info">
+                                        <h5>System Information</h5>
+                                        <table class="info-table">
+                                            <tr>
+                                                <td>Version:</td>
+                                                <td>1.0.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Backend URL:</td>
+                                                <td id="backend-url">beautysalon-div4.onrender.com</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Last Updated:</td>
+                                                <td id="last-updated">Today</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Data Storage:</td>
+                                                <td id="data-storage">Render + Local Storage</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    
+                                    <div class="developer-info">
+                                        <h5>Support & Contact</h5>
+                                        <p>For support, contact: <strong>0705 455 312</strong></p>
+                                        <p>Email: info@salonelegance.com</p>
+                                        
+                                        <div class="developer-actions">
+                                            <button class="action-btn" id="clear-cache">
+                                                <i class="fas fa-broom"></i> Clear Cache
+                                            </button>
+                                            <button class="action-btn" id="system-check">
+                                                <i class="fas fa-stethoscope"></i> System Check
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Export Data -->
+                    <section class="content-section" id="export-content">
+                        <div class="section-header">
+                            <h3><i class="fas fa-download"></i> Export Data</h3>
+                        </div>
+                        
+                        <div class="export-options">
+                            <div class="export-card">
+                                <div class="export-icon">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </div>
+                                <div class="export-info">
+                                    <h5>Export Products</h5>
+                                    <p>Download all products as JSON or CSV</p>
+                                </div>
+                                <div class="export-actions">
+                                    <button class="export-btn" data-type="products" data-format="json">
+                                        <i class="fas fa-file-code"></i> JSON
+                                    </button>
+                                    <button class="export-btn" data-type="products" data-format="csv">
+                                        <i class="fas fa-file-csv"></i> CSV
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="export-card">
+                                <div class="export-icon">
+                                    <i class="fas fa-spa"></i>
+                                </div>
+                                <div class="export-info">
+                                    <h5>Export Services</h5>
+                                    <p>Download all services as JSON or CSV</p>
+                                </div>
+                                <div class="export-actions">
+                                    <button class="export-btn" data-type="services" data-format="json">
+                                        <i class="fas fa-file-code"></i> JSON
+                                    </button>
+                                    <button class="export-btn" data-type="services" data-format="csv">
+                                        <i class="fas fa-file-csv"></i> CSV
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="export-card">
+                                <div class="export-icon">
+                                    <i class="fas fa-calendar-check"></i>
+                                </div>
+                                <div class="export-info">
+                                    <h5>Export Bookings</h5>
+                                    <p>Download booking history</p>
+                                </div>
+                                <div class="export-actions">
+                                    <button class="export-btn" data-type="bookings" data-format="json">
+                                        <i class="fas fa-file-code"></i> JSON
+                                    </button>
+                                    <button class="export-btn" data-type="bookings" data-format="csv">
+                                        <i class="fas fa-file-csv"></i> CSV
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="export-card">
+                                <div class="export-icon">
+                                    <i class="fas fa-chart-bar"></i>
+                                </div>
+                                <div class="export-info">
+                                    <h5>Export All Data</h5>
+                                    <p>Complete database backup</p>
+                                </div>
+                                <div class="export-actions">
+                                    <button class="export-btn" data-type="all" data-format="json">
+                                        <i class="fas fa-database"></i> Full Backup
+                                    </button>
+                                    <button class="export-btn" data-type="report" data-format="pdf">
+                                        <i class="fas fa-file-pdf"></i> PDF Report
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="export-notes">
+                            <h5>Export Notes</h5>
+                            <ul>
+                                <li>JSON format is best for backups and data transfer</li>
+                                <li>CSV format is best for spreadsheets and analysis</li>
+                                <li>Backup your data regularly to prevent loss</li>
+                                <li>Exports include all active data from your Render backend</li>
+                            </ul>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
     </div>
-                <!-- Services content will be added here -->
-            </section>
 
-            <!-- Bookings Management Section -->
-            <section class="admin-section" id="bookings-section">
-                <div class="section-header">
-                    <h2>Bookings Management</h2>
-                </div>
-                <!-- Bookings content will be added here -->
-            </section>
-
-
-
-<!-- Settings Management Section -->
-<section class="admin-section" id="settings-section">
-    <div class="section-header">
-        <h2>Settings</h2>
-    </div>
+    <!-- ====== MODALS ====== -->
     
-    <div class="settings-tabs">
-        <div class="tab-buttons">
-            <button class="tab-btn active" data-tab="password">Password</button>
-            <button class="tab-btn" data-tab="business">Business Info</button>
-            <button class="tab-btn" data-tab="hours">Working Hours</button>
-        </div>
-        
-        <!-- Password Tab -->
-        <div class="tab-content active" id="password-tab">
-            <div class="settings-card">
-                <h3><i class="fas fa-lock"></i> Change Admin Password</h3>
-                <form id="change-password-form">
-                    <div class="form-group">
-                        <label for="current-password">Current Password</label>
-                        <div class="input-with-icon">
-                            <i class="fas fa-key"></i>
-                            <input type="password" id="current-password" required>
-                            <button type="button" class="show-password-btn">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="new-password">New Password</label>
-                        <div class="input-with-icon">
-                            <i class="fas fa-key"></i>
-                            <input type="password" id="new-password" required minlength="6">
-                            <button type="button" class="show-password-btn">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                        </div>
-                        <small>Minimum 6 characters</small>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="confirm-password">Confirm New Password</label>
-                        <div class="input-with-icon">
-                            <i class="fas fa-key"></i>
-                            <input type="password" id="confirm-password" required>
-                            <button type="button" class="show-password-btn">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="form-actions">
-                        <button type="button" class="btn-secondary" id="cancel-password">Cancel</button>
-                        <button type="submit" class="btn-primary">Change Password</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        
-        <!-- Business Info Tab -->
-        <div class="tab-content" id="business-tab">
-            <div class="settings-card">
-                <h3><i class="fas fa-store"></i> Business Information</h3>
-                <form id="business-info-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="salon-name">Salon Name</label>
-                            <input type="text" id="salon-name" value="GlamourGlow Salon">
-                        </div>
-                        <div class="form-group">
-                            <label for="salon-phone">Phone Number</label>
-                            <input type="tel" id="salon-phone" value="0705 455 312">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="salon-address">Address</label>
-                        <textarea id="salon-address" rows="3">Nyeri Town Center, Nyeri, Kenya</textarea>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="salon-email">Email</label>
-                            <input type="email" id="salon-email" value="info@glamourglow.co.ke">
-                        </div>
-                        <div class="form-group">
-                            <label for="salon-whatsapp">WhatsApp Number</label>
-                            <input type="tel" id="salon-whatsapp" value="254705455312">
-                        </div>
-                    </div>
-                    
-                    <div class="form-actions">
-                        <button type="button" class="btn-secondary" id="cancel-business">Reset</button>
-                        <button type="submit" class="btn-primary">Save Changes</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        
-        <!-- Working Hours Tab -->
-        <div class="tab-content" id="hours-tab">
-            <div class="settings-card">
-                <h3><i class="fas fa-clock"></i> Working Hours</h3>
-                <div class="hours-list" id="working-hours-list">
-                    <!-- Hours will be loaded dynamically -->
-                </div>
-                <button class="btn-primary" id="save-hours-btn">
-                    <i class="fas fa-save"></i> Save All Hours
-                </button>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Demo Version Notice -->
-    <div class="demo-notice glass-card">
-        <div class="notice-header">
-            <i class="fas fa-info-circle"></i>
-            <h4>Demo Version Notice</h4>
-        </div>
-        <div class="notice-content">
-            <p>This is a demo version. Changes reset on page refresh.</p>
-            <p>To get the full version with permanent data storage:</p>
-            <div class="contact-info">
-                <p><i class="fas fa-envelope"></i> Email: your-email@example.com</p>
-                <p><i class="fas fa-phone"></i> Phone: Your Phone Number</p>
-            </div>
-            <button class="btn-primary" id="contact-purchase">Contact for Purchase</button>
-        </div>
-    </div>
-</section>
-
-
-
-
-
-        </main>
-    </div>
-
-    <!-- Product Modal (For Add/Edit) -->
-    <div class="admin-modal" id="product-modal">
-        <div class="modal-content">
+    <!-- Add/Edit Product Modal -->
+    <div class="modal-overlay" id="product-modal">
+        <div class="modal-content large-modal">
             <div class="modal-header">
-                <h3 id="modal-title">Add New Product</h3>
-                <button class="close-modal" id="close-modal">
+                <h3><i class="fas fa-shopping-bag"></i> <span id="product-modal-title">Add New Product</span></h3>
+                <button class="close-modal">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
-            <div class="modal-body">
-                <form id="product-form">
-                    <input type="hidden" id="product-id">
-                    
+            
+            <form class="modal-form" id="product-form">
+                <input type="hidden" id="product-id">
+                
+                <div class="form-grid">
                     <div class="form-group">
                         <label for="product-name">Product Name *</label>
-                        <input type="text" id="product-name" required>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="product-category">Category *</label>
-                            <select id="product-category" required>
-                                <option value="">Select Category</option>
-                                <option value="hair">Hair Care</option>
-                                <option value="skin">Skincare</option>
-                                <option value="makeup">Makeup</option>
-                                <option value="nails">Nail Care</option>
-                                <option value="tools">Tools</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="product-price">Price (KSH) *</label>
-                            <input type="number" id="product-price" min="0" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="original-price">Original Price (KSH)</label>
-                            <input type="number" id="original-price" min="0">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="product-stock">Stock Quantity *</label>
-                            <input type="number" id="product-stock" min="0" required>
-                        </div>
+                        <input type="text" id="product-name" required placeholder="e.g., Designer Wig">
                     </div>
                     
                     <div class="form-group">
-                        <label for="product-image">Image URL</label>
-                        <input type="url" id="product-image" placeholder="https://example.com/image.jpg">
-                        <small>Enter a valid image URL or leave blank for default</small>
+                        <label for="product-category">Category *</label>
+                        <select id="product-category" required>
+                            <option value="">Select Category</option>
+                            <option value="wigs">Wigs</option>
+                            <option value="clothes">Clothes/Ware</option>
+                            <option value="beauty">Beauty Products</option>
+                            <option value="shukas">Shukas</option>
+                            <option value="bags">Bags</option>
+                            <option value="other">Other</option>
+                        </select>
                     </div>
                     
                     <div class="form-group">
-                        <label for="product-description">Description *</label>
-                        <textarea id="product-description" rows="4" required></textarea>
+                        <label for="product-price">Price (Ksh) *</label>
+                        <input type="number" id="product-price" required min="0" step="10" placeholder="2500">
                     </div>
                     
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="product-rating">Rating (0-5)</label>
-                            <input type="number" id="product-rating" min="0" max="5" step="0.1">
+                    <div class="form-group">
+                        <label for="product-stock">Stock Quantity</label>
+                        <input type="number" id="product-stock" min="0" value="10" placeholder="Available items">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="product-description">Description</label>
+                    <textarea id="product-description" rows="3" placeholder="Product details, features, etc."></textarea>
+                </div>
+                
+                <!-- Image Upload Section -->
+                <div class="image-upload-section">
+                    <h4>Product Image</h4>
+                    <p>Upload your own image or choose from public images</p>
+                    
+                    <div class="image-options">
+                        <!-- Option 1: Upload Image -->
+                        <div class="image-option">
+                            <div class="option-header">
+                                <i class="fas fa-upload"></i>
+                                <h5>Upload Your Image</h5>
+                            </div>
+                            <div class="file-upload-area" id="image-upload-area">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Click to upload or drag & drop</p>
+                                <small>JPG, PNG or GIF (max 2MB)</small>
+                                <input type="file" id="image-upload" accept="image/*" hidden>
+                            </div>
+                            <div class="image-preview" id="upload-preview">
+                                <!-- Uploaded image preview -->
+                            </div>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="product-badge">Badge</label>
-                            <select id="product-badge">
-                                <option value="">None</option>
-                                <option value="Best Seller">Best Seller</option>
-                                <option value="New">New</option>
-                                <option value="Sale">Sale</option>
-                                <option value="Hot">Hot</option>
-                            </select>
+                        <!-- Option 2: Public Images -->
+                        <div class="image-option">
+                            <div class="option-header">
+                                <i class="fas fa-images"></i>
+                                <h5>Choose Public Image</h5>
+                            </div>
+                            <div class="public-images-grid" id="public-images">
+                                <!-- Public images will be loaded here -->
+                                <div class="loading-spinner">
+                                    <div class="spinner"></div>
+                                    <p>Loading public images...</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Option 3: Image URL -->
+                        <div class="image-option">
+                            <div class="option-header">
+                                <i class="fas fa-link"></i>
+                                <h5>Use Image URL</h5>
+                            </div>
+                            <div class="url-input">
+                                <input type="url" id="image-url" placeholder="https://example.com/image.jpg">
+                                <button type="button" class="btn-small" id="load-image-url">Load Image</button>
+                            </div>
+                            <div class="image-preview" id="url-preview">
+                                <!-- URL image preview -->
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="form-actions">
-                        <button type="button" class="btn-secondary" id="cancel-product">Cancel</button>
-                        <button type="submit" class="btn-primary" id="save-product">Save Product</button>
+                    <!-- Current Image Display (for edit) -->
+                    <div class="current-image" id="current-image-section" style="display: none;">
+                        <h5>Current Image</h5>
+                        <div class="current-image-preview" id="current-image-preview"></div>
+                        <button type="button" class="btn-small danger" id="remove-image">Remove Image</button>
                     </div>
-                </form>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn">Cancel</button>
+                    <button type="submit" class="save-btn">
+                        <i class="fas fa-save"></i> Save Product
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Add/Edit Service Modal -->
+    <div class="modal-overlay" id="service-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-spa"></i> <span id="service-modal-title">Add New Service</span></h3>
+                <button class="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <form class="modal-form" id="service-form">
+                <input type="hidden" id="service-id">
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="service-name">Service Name *</label>
+                        <input type="text" id="service-name" required placeholder="e.g., Hair Styling">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service-category">Category *</label>
+                        <select id="service-category" required>
+                            <option value="">Select Category</option>
+                            <option value="hair">Hair Services</option>
+                            <option value="skin">Skin Care</option>
+                            <option value="nails">Nails</option>
+                            <option value="makeup">Makeup</option>
+                            <option value="spa">Spa & Massage</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service-price">Price (Ksh) *</label>
+                        <input type="number" id="service-price" required min="0" step="10" placeholder="1500">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service-duration">Duration</label>
+                        <select id="service-duration">
+                            <option value="30 min">30 minutes</option>
+                            <option value="45 min" selected>45 minutes</option>
+                            <option value="60 min">1 hour</option>
+                            <option value="90 min">1.5 hours</option>
+                            <option value="120 min">2 hours</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="service-description">Description</label>
+                    <textarea id="service-description" rows="3" placeholder="Service details, what's included, etc."></textarea>
+                </div>
+                
+                <!-- Icon Selection -->
+                <div class="icon-selection">
+                    <h4>Choose Icon</h4>
+                    <p>Select an icon to represent this service</p>
+                    
+                    <div class="icons-grid" id="icons-grid">
+                        <!-- Icons will be loaded here -->
+                        <div class="icon-option" data-icon="💇">💇</div>
+                        <div class="icon-option" data-icon="💅">💅</div>
+                        <div class="icon-option" data-icon="✨">✨</div>
+                        <div class="icon-option" data-icon="💄">💄</div>
+                        <div class="icon-option" data-icon="🧖">🧖</div>
+                        <div class="icon-option" data-icon="🧴">🧴</div>
+                        <div class="icon-option" data-icon="🛁">🛁</div>
+                        <div class="icon-option" data-icon="💆">💆</div>
+                        <div class="icon-option" data-icon="🧼">🧼</div>
+                        <div class="icon-option" data-icon="🪒">🪒</div>
+                        <div class="icon-option" data-icon="🪞">🪞</div>
+                        <div class="icon-option" data-icon="💈">💈</div>
+                    </div>
+                    
+                    <div class="selected-icon-display">
+                        <span id="selected-icon-preview">💇</span>
+                        <span>Selected Icon</span>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn">Cancel</button>
+                    <button type="submit" class="save-btn">
+                        <i class="fas fa-save"></i> Save Service
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Add/Edit Booking Modal -->
+    <div class="modal-overlay" id="booking-modal">
+        <div class="modal-content large-modal">
+            <div class="modal-header">
+                <h3><i class="fas fa-calendar-plus"></i> <span id="booking-modal-title">Add New Booking</span></h3>
+                <button class="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <form class="modal-form" id="booking-modal-form">
+                <input type="hidden" id="booking-modal-id">
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="booking-service">Service *</label>
+                        <select id="booking-service" required>
+                            <option value="">Select Service</option>
+                            <!-- Services will be loaded here -->
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="booking-date">Date *</label>
+                        <input type="date" id="booking-modal-date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="booking-time">Time *</label>
+                        <select id="booking-time" required>
+                            <option value="">Select Time</option>
+                            <!-- Time slots will be loaded here -->
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="booking-status">Status</label>
+                        <select id="booking-status">
+                            <option value="pending">Pending</option>
+                            <option value="confirmed" selected>Confirmed</option>
+                            <option value="completed">Completed</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="booking-customer-name">Customer Name *</label>
+                        <input type="text" id="booking-customer-name" required placeholder="Customer full name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="booking-customer-phone">Phone *</label>
+                        <input type="tel" id="booking-customer-phone" required placeholder="0700 000 000">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="booking-customer-email">Email</label>
+                        <input type="email" id="booking-customer-email" placeholder="customer@email.com">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="booking-notes">Notes</label>
+                    <textarea id="booking-notes" rows="3" placeholder="Any special requests or notes..."></textarea>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn">Cancel</button>
+                    <button type="submit" class="save-btn">
+                        <i class="fas fa-calendar-check"></i> Save Booking
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Delete Confirmation Modal -->
+    <div class="modal-overlay" id="delete-modal">
+        <div class="modal-content small-modal">
+            <div class="modal-header">
+                <h3><i class="fas fa-exclamation-triangle"></i> Confirm Delete</h3>
+                <button class="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <p id="delete-message">Are you sure you want to delete this item? This action cannot be undone.</p>
+                
+                <div class="delete-actions">
+                    <button class="cancel-btn" id="cancel-delete">Cancel</button>
+                    <button class="delete-btn" id="confirm-delete">
+                        <i class="fas fa-trash"></i> Delete
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-<!-- MOBILE MENU FOR ADMIN - FIXED VERSION -->
-<div id="admin-mobile-menu" class="admin-mobile-menu">
-    <button class="close-admin-menu">✕</button>
     
-    <div class="admin-mobile-header">
-        <h3><i class="fas fa-user-shield"></i> Admin Panel</h3>
-    </div>
-    
-    <div class="admin-mobile-links">
-        <a href="#" data-section="dashboard" class="mobile-nav-link active">
-            <i class="fas fa-tachometer-alt"></i>
-            <span>Dashboard</span>
-        </a>
-        <a href="#" data-section="products" class="mobile-nav-link">
-            <i class="fas fa-box"></i>
-            <span>Products</span>
-        </a>
-        <a href="#" data-section="bookings" class="mobile-nav-link">
-            <i class="fas fa-calendar-check"></i>
-            <span>Bookings</span>
-        </a>
-        <a href="#" data-section="customers" class="mobile-nav-link">
-            <i class="fas fa-users"></i>
-            <span>Customers</span>
-        </a>
-        <a href="index.html" class="mobile-nav-link">
-            <i class="fas fa-home"></i>
-            <span>View Website</span>
-        </a>
-        <a href="#" id="mobile-logout" class="mobile-nav-link">
-            <i class="fas fa-sign-out-alt"></i>
-            <span>Logout</span>
-        </a>
-    </div>
-</div>
+    <!-- Notification Toast -->
+    <div class="toast-container" id="toast-container"></div>
 
-<!-- HAMBURGER BUTTON FOR MOBILE -->
-<div class="admin-mobile-hamburger">
-    <button id="admin-hamburger-btn">
-        <i class="fas fa-bars"></i>
-    </button>
-</div>
-
-<style>
-    /* MOBILE MENU STYLES */
-    .admin-mobile-hamburger {
-        display: none;
-        position: fixed;
-        top: 15px;
-        left: 15px;
-        z-index: 1000;
-    }
-    
-    #admin-hamburger-btn {
-        background: var(--gradient-primary);
-        border: none;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        color: white;
-        font-size: 20px;
-        cursor: pointer;
-        box-shadow: var(--shadow-lg);
-    }
-    
-    .admin-mobile-menu {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 80%;
-        max-width: 300px;
-        height: 100vh;
-        background: var(--navy-dark);
-        z-index: 1002;
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
-        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
-    }
-    
-    .admin-mobile-menu.active {
-        transform: translateX(0);
-    }
-    
-    .close-admin-menu {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        background: transparent;
-        border: none;
-        color: white;
-        font-size: 24px;
-        cursor: pointer;
-        z-index: 1003;
-    }
-    
-    .admin-mobile-header {
-        padding: 70px 20px 20px;
-        background: linear-gradient(135deg, var(--primary-pink), var(--accent-gold));
-        color: white;
-    }
-    
-    .admin-mobile-links {
-        padding: 20px;
-    }
-    
-    .mobile-nav-link {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        padding: 15px;
-        color: rgba(255, 255, 255, 0.8);
-        text-decoration: none;
-        border-radius: 10px;
-        margin-bottom: 10px;
-        transition: all 0.3s ease;
-    }
-    
-    .mobile-nav-link:hover,
-    .mobile-nav-link.active {
-        background: rgba(255, 255, 255, 0.1);
-        color: white;
-    }
-    
-    .mobile-nav-link i {
-        width: 20px;
-        text-align: center;
-    }
-    
-    .mobile-menu-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 1001;
-    }
-    
-    .mobile-menu-overlay.active {
-        display: block;
-    }
-    
-    /* Show on mobile only */
-    @media (max-width: 768px) {
-        .admin-mobile-hamburger {
-            display: block;
-        }
-        
-        /* Hide desktop sidebar on mobile */
-        #admin-sidebar {
-            display: none;
-        }
-        
-        /* Adjust main content */
-        .admin-main-content {
-            margin-left: 0 !important;
-            padding-top: 70px;
-        }
-    }
-</style>
-
-<script>
-    // Mobile Menu JavaScript
-    document.addEventListener('DOMContentLoaded', function() {
-        const hamburgerBtn = document.getElementById('admin-hamburger-btn');
-        const mobileMenu = document.getElementById('admin-mobile-menu');
-        const closeBtn = document.querySelector('.close-admin-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-        const overlay = document.createElement('div');
-        
-        // Create overlay
-        overlay.className = 'mobile-menu-overlay';
-        document.body.appendChild(overlay);
-        
-        // Open menu
-        hamburgerBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-            overlay.classList.add('active');
-            mobileMenu.style.display = 'block';
-        });
-        
-        // Close menu
-        function closeMobileMenu() {
-            mobileMenu.classList.remove('active');
-            overlay.classList.remove('active');
-            setTimeout(() => {
-                mobileMenu.style.display = 'none';
-            }, 300);
-        }
-        
-        closeBtn.addEventListener('click', closeMobileMenu);
-        overlay.addEventListener('click', closeMobileMenu);
-        
-        // Mobile navigation
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                if (this.getAttribute('href') === '#') {
-                    e.preventDefault();
-                    const section = this.getAttribute('data-section');
-                    
-                    // Update active link
-                    mobileLinks.forEach(l => l.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Switch section (use your existing function)
-                    switchAdminSection(section);
-                    
-                    // Close menu
-                    closeMobileMenu();
-                }
-            });
-        });
-        
-        // Logout
-        document.getElementById('mobile-logout').addEventListener('click', function(e) {
-            e.preventDefault();
-            sessionStorage.removeItem('admin_logged_in');
-            window.location.href = 'index.html';
-        });
-    });
-    
-    // Function to switch sections (add to your existing code if not present)
-    function switchAdminSection(section) {
-        const sections = document.querySelectorAll('.admin-section');
-        const navLinks = document.querySelectorAll('.sidebar-nav a[data-section]');
-        
-        // Hide all sections
-        sections.forEach(sec => sec.classList.remove('active'));
-        
-        // Show selected section
-        const targetSection = document.getElementById(`${section}-section`);
-        if (targetSection) {
-            targetSection.classList.add('active');
-            
-            // Update page title
-            document.getElementById('page-title').textContent = 
-                section === 'dashboard' ? 'Dashboard' :
-                section === 'products' ? 'Products' :
-                section === 'bookings' ? 'Bookings' :
-                section === 'customers' ? 'Customers' : 'Dashboard';
-            
-            // If switching to products, refresh the table
-            if (section === 'products') {
-                loadProductsTable();
-            }
-        }
-        
-        // Update desktop nav too
-        navLinks.forEach(link => {
-            if (link.getAttribute('data-section') === section) {
-                link.classList.add('active');
-            } else {
-                link.classList.remove('active');
-            }
-        });
-    }
-    </script>
-
-
-<div id="pagination" class="pagination"></div>
-
-       <style>
-    /* Fix product table scrolling */
-    #products-table-body {
-        max-height: 400px;
-        overflow-y: auto;
-        display: block;
-    }
-    
-    #products-table-body tr {
-        display: table;
-        width: 100%;
-        table-layout: fixed;
-    }
-    
-    /* Make table responsive on mobile */
-    @media (max-width: 768px) {
-        .products-table-container {
-            overflow-x: auto;
-        }
-        
-        .products-table {
-            min-width: 600px;
-        }
-        
-        .product-image-cell {
-            width: 80px;
-        }
-        
-        .action-buttons {
-            display: flex;
-            gap: 5px;
-        }
-        
-        .btn-edit, .btn-delete {
-            width: 35px;
-            height: 35px;
-            font-size: 14px;
-        }
-    }
-    
-    /* Pagination fix */
-    .pagination {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-        flex-wrap: wrap;
-        gap: 5px;
-    }
-    
-    .page-btn {
-        padding: 8px 15px;
-        background: rgba(255, 255, 255, 0.1);
-        border: none;
-        color: white;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-    
-    .page-btn.active,
-    .page-btn:hover {
-        background: var(--primary-pink);
-    }
-</style>
-    <!-- JavaScript Files -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/admin-dashboard.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="js/admin.js"></script>
 </body>
-
 </html>
-
-
+            
