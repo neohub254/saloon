@@ -1,0 +1,264 @@
+/* mobile-optimizations.css - Mobile-specific styles */
+
+/* ====== MOBILE BASKET ====== */
+@media (max-width: 768px) {
+    /* Basket sidebar mobile optimization */
+    .basket-sidebar {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 80vh;
+        bottom: 0;
+        top: auto;
+        border-radius: 20px 20px 0 0;
+        box-shadow: 0 -10px 30px rgba(0,0,0,0.3);
+    }
+    
+    /* Pull indicator for mobile */
+    .pull-indicator {
+        display: flex;
+        justify-content: center;
+        padding: 10px 0;
+        cursor: grab;
+    }
+    
+    .indicator-bar {
+        width: 40px;
+        height: 4px;
+        background: #ccc;
+        border-radius: 2px;
+    }
+    
+    /* Basket items mobile */
+    .basket-item {
+        padding: 16px 12px;
+        margin-bottom: 12px;
+        border-radius: 16px;
+        background: white;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        position: relative;
+        overflow: hidden;
+        min-height: 100px;
+    }
+    
+    /* Swipe action indicator */
+    .swipe-action {
+        position: absolute;
+        right: -80px;
+        top: 0;
+        bottom: 0;
+        width: 80px;
+        background: linear-gradient(135deg, #ff4444, #ff0000);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        transition: right 0.3s ease;
+        border-radius: 0 16px 16px 0;
+    }
+    
+    .basket-item.swiping .swipe-action {
+        right: 0;
+    }
+    
+    /* Quantity controls mobile */
+    .quantity-controls {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background: #f8f9fa;
+        padding: 8px 12px;
+        border-radius: 12px;
+    }
+    
+    .qty-btn {
+        width: 44px !important;
+        height: 44px !important;
+        border: none;
+        border-radius: 10px;
+        background: white;
+        color: #333;
+        font-size: 22px !important;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        cursor: pointer;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    .qty-btn:active {
+        transform: scale(0.95);
+        background: #f0f0f0;
+    }
+    
+    .quantity-display {
+        font-size: 18px;
+        font-weight: 600;
+        min-width: 40px;
+        text-align: center;
+        color: #333;
+    }
+    
+    /* Remove button mobile */
+    .remove-item-btn {
+        width: 44px !important;
+        height: 44px !important;
+        border: none;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #ff6b6b, #ff4444);
+        color: white;
+        font-size: 18px !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(255, 68, 68, 0.3);
+        touch-action: manipulation;
+    }
+    
+    .remove-item-btn:active {
+        transform: scale(0.95);
+        background: linear-gradient(135deg, #ff4444, #ff0000);
+    }
+    
+    /* Empty basket mobile */
+    .empty-basket {
+        padding: 40px 20px;
+        text-align: center;
+    }
+    
+    .empty-icon {
+        font-size: 60px;
+        color: #ddd;
+        margin-bottom: 20px;
+    }
+    
+    /* Basket footer mobile */
+    .basket-footer {
+        padding: 20px;
+        background: white;
+        border-top: 1px solid #eee;
+        position: sticky;
+        bottom: 0;
+    }
+    
+    .basket-actions {
+        display: flex;
+        gap: 12px;
+    }
+    
+    .clear-btn, .order-btn {
+        flex: 1;
+        padding: 18px !important;
+        font-size: 16px !important;
+        font-weight: 600;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        touch-action: manipulation;
+    }
+    
+    .clear-btn {
+        background: #f8f9fa;
+        color: #666;
+    }
+    
+    .order-btn {
+        background: linear-gradient(135deg, #ff20b1, #ff1493);
+        color: white;
+        box-shadow: 0 4px 12px rgba(255, 20, 147, 0.3);
+    }
+    
+    .order-btn:active {
+        transform: scale(0.98);
+    }
+    
+    /* Toast notifications mobile */
+    #mobile-toast {
+        font-size: 15px !important;
+        padding: 18px 24px !important;
+        border-radius: 16px !important;
+        backdrop-filter: blur(10px);
+        background: rgba(0, 0, 0, 0.85) !important;
+    }
+}
+
+/* ====== TOUCH OPTIMIZATIONS ====== */
+@media (hover: none) and (pointer: coarse) {
+    /* Increase touch targets */
+    button, 
+    .clickable,
+    .action-btn,
+    .toggle-btn,
+    .category-btn {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 12px 16px !important;
+    }
+    
+    /* Prevent text selection on tap */
+    .basket-item,
+    .item-card,
+    button {
+        -webkit-tap-highlight-color: transparent;
+        user-select: none;
+    }
+    
+    /* Add active states */
+    .basket-item:active {
+        background: #f8f9fa;
+        transform: scale(0.995);
+    }
+    
+    /* Modal touch optimization */
+    .modal-content {
+        max-height: 80vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* ====== ANIMATIONS ====== */
+@keyframes slideUpMobile {
+    from {
+        transform: translate(-50%, 100%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideDownMobile {
+    from {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+    to {
+        transform: translate(-50%, 100%);
+        opacity: 0;
+    }
+}
+
+@keyframes pulseMobile {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulseMobile 0.5s ease;
+}
+
+/* ====== SAFE AREAS FOR NOTCH PHONES ====== */
+@supports (padding: max(0px)) {
+    .basket-sidebar,
+    .modal-content,
+    #mobile-toast {
+        padding-bottom: max(12px, env(safe-area-inset-bottom));
+    }
+}

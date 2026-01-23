@@ -11,6 +11,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- CSS Files -->
+     
+
+    <!-- Add these AFTER <title> tag but BEFORE other meta tags -->
+
+<!-- Essential Meta Tags for SEO & Mobile -->
+<meta name="description" content="Salon Elegance - Premium beauty salon in Kenya. Hair styling, manicure, pedicure, beauty products, wigs, African prints & professional services.">
+<meta name="keywords" content="salon, beauty, Kenya, Nairobi, hair, nails, wigs, African prints, beauty products, manicure, pedicure">
+<meta name="author" content="Salon Elegance">
+<meta name="robots" content="index, follow">
+
+<!-- Viewport for Mobile -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+<!-- Open Graph (Facebook) -->
+<meta property="og:title" content="Salon Elegance | Premium Beauty Salon in Kenya">
+<meta property="og:description" content="Professional beauty services, hair styling, African products & beauty treatments in Nairobi, Kenya">
+<meta property="og:image" content="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200&h=630&fit=crop">
+<meta property="og:url" content="https://your-domain.com">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Salon Elegance">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Salon Elegance | Premium Beauty Salon">
+<meta name="twitter:description" content="Professional beauty services & products in Kenya">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200&h=630&fit=crop">
+
+<!-- Mobile App Meta -->
+<meta name="theme-color" content="#ff1493">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="images/icon-192.png">
+
+<!-- Favicons -->
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+
+
+    <link rel="stylesheet" href="css/mobile-optimizations.css">
     <link rel="stylesheet" href="css/index-styles.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
@@ -802,11 +844,11 @@
         <!-- Admin Login Section -->
         <section id="admin-login" class="admin-login-section">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header"> <a href="admin.html">
                     <div class="section-title">
                         <h2><span class="title-decor">🔒</span> Salon Management <span class="title-decor">🔒</span></h2>
                         <p class="section-subtitle">Admin access for business management</p>
-                    </div>
+                    </div>   </a>
                 </div>
                 
                 <div class="admin-login-container glass-card">
@@ -1062,117 +1104,67 @@
             </div>
         </div>
     </footer>
-
-<!-- Floating Basket Button (Optional) -->
-<button class="floating-basket-btn" id="floating-basket-btn">
-    <i class="fas fa-shopping-basket"></i>
-    <span class="floating-count" id="floating-count">0</span>
-</button>
-
-<script>
-// Floating basket button functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const floatingBtn = document.getElementById('floating-basket-btn');
-    const basketSidebar = document.getElementById('basket-sidebar');
     
-    if (floatingBtn) {
-        floatingBtn.addEventListener('click', function() {
-            // Open the existing basket sidebar
-            basketSidebar.classList.add('active');
-        });
-        
-        // Update count
-        function updateFloatingCount() {
-            const basketCount = document.getElementById('basket-count');
-            const floatingCount = document.getElementById('floating-count');
-            if (basketCount && floatingCount) {
-                floatingCount.textContent = basketCount.textContent;
-                floatingCount.style.display = basketCount.textContent === '0' ? 'none' : 'flex';
-            }
-        }
-        
-        // Initial update
-        updateFloatingCount();
-        
-        // Update when basket changes (listen to your basket.js updates)
-        setInterval(updateFloatingCount, 1000);
-    }
-});
-
-// Add CSS for floating button
-const floatingCSS = `
-.floating-basket-btn {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
-    border-radius: 50%;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-    box-shadow: 0 4px 20px rgba(255, 20, 147, 0.3);
-    z-index: 998;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.floating-basket-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 25px rgba(255, 20, 147, 0.4);
-}
-
-.floating-count {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background: #ff4757;
-    color: white;
-    font-size: 0.7rem;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    border: 2px solid var(--card-bg);
-}
-
-@media (max-width: 768px) {
-    .floating-basket-btn {
-        bottom: 5rem; /* Above mobile menu */
-        right: 1rem;
-        width: 50px;
-        height: 50px;
-        font-size: 1.2rem;
-    }
-    
-    .floating-count {
-        width: 18px;
-        height: 18px;
-        font-size: 0.6rem;
-    }
-}
-`;
-
-const floatingStyle = document.createElement('style');
-floatingStyle.textContent = floatingCSS;
-document.head.appendChild(floatingStyle);
-</script>
-    <!-- Admin Dashboard Link -->
-<a href="admin.html" class="admin-link">
-    <i class="fas fa-user-shield"></i>
-    <span>Admin Dashboard</span>
-</a>
+    <!-- Admin Login Modal -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-modal-content glass-card">
+            <div class="login-modal-header">
+                <h3><i class="fas fa-lock"></i> Admin Login</h3>
+                <button class="close-login-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="login-modal-body">
+                <form id="adminLoginForm">
+                    <div class="form-group">
+                        <label for="adminUsername">Username</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="adminUsername" value="admin" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="adminPassword">Password</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-key"></i>
+                            <input type="password" id="adminPassword" placeholder="Enter password" required>
+                            <button type="button" class="show-password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <p class="password-hint">Default: admin123 (Change in dashboard)</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="rememberMe">
+                            <span class="checkbox-custom"></span>
+                            Remember me
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="login-submit-btn neon-btn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>Login to Dashboard</span>
+                    </button>
+                </form>
+                
+                <div class="login-footer">
+                    <p>Forgot password? Contact website administrator.</p>
+                    <p class="demo-note">Demo: Username: admin | Password: admin123</p>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <!-- JavaScript Files -->
+     <!-- BEFORE your existing scripts -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/offline-backup.js"></script>
     <script src="js/main.js"></script>
     <script src="js/animations.js"></script>
 </body>
 </html>
-

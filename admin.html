@@ -4,6 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salon Elegance | Admin Panel</title>
+
+
+
+    <!-- Add these AFTER <title> tag but BEFORE other meta tags -->
+
+<!-- Essential Meta Tags for SEO & Mobile -->
+<meta name="description" content="Salon Elegance - Premium beauty salon in Kenya. Hair styling, manicure, pedicure, beauty products, wigs, African prints & professional services.">
+<meta name="keywords" content="salon, beauty, Kenya, Nairobi, hair, nails, wigs, African prints, beauty products, manicure, pedicure">
+<meta name="author" content="Salon Elegance">
+<meta name="robots" content="index, follow">
+
+<!-- Viewport for Mobile -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+<!-- Open Graph (Facebook) -->
+<meta property="og:title" content="Salon Elegance | Premium Beauty Salon in Kenya">
+<meta property="og:description" content="Professional beauty services, hair styling, African products & beauty treatments in Nairobi, Kenya">
+<meta property="og:image" content="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200&h=630&fit=crop">
+<meta property="og:url" content="https://your-domain.com">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Salon Elegance">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Salon Elegance | Premium Beauty Salon">
+<meta name="twitter:description" content="Professional beauty services & products in Kenya">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200&h=630&fit=crop">
+
+<!-- Mobile App Meta -->
+<meta name="theme-color" content="#ff1493">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="images/icon-192.png">
+
+<!-- Favicons -->
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+
+
+    <link rel="stylesheet" href="css/mobile-optimizations.css">
     <link rel="stylesheet" href="css/products-main.css">
     <link rel="stylesheet" href="css/admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -144,9 +187,9 @@
                     <div class="sidebar-footer">
                         <div class="system-status">
                             <div class="status-indicator online"></div>
-                            <span>Connected to Render</span>
+                            <span>Connected to WEB</span>
                         </div>
-                        <small>Backend: beautysalon-div4.onrender.com</small>
+                        <small>Backend: </small>
                     </div>
                 </aside>
                 
@@ -191,7 +234,7 @@
                                     <h4>Today's Bookings</h4>
                                     <p class="stat-number" id="stat-bookings">0</p>
                                 </div>
-                                <a href="#bookings" class="stat-link">View All <i class="fas fa-arrow-right"></i></a>
+                                <a href="admin.html#products" class="stat-link">View All <i class="fas fa-arrow-right"></i></a>
                             </div>
                             
                             <div class="stat-card">
@@ -202,7 +245,7 @@
                                     <h4>Total Revenue</h4>
                                     <p class="stat-number" id="stat-revenue">Ksh 0</p>
                                 </div>
-                                <a href="#orders" class="stat-link">View Reports <i class="fas fa-arrow-right"></i></a>
+                                <a href="admin.html#orders" class="stat-link">View Reports <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                         
@@ -1060,8 +1103,13 @@
     <div class="toast-container" id="toast-container"></div>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="js/admin.js"></script>
+     <!-- BEFORE your existing scripts -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/image-upload-helper.js"></script>
+<script src="js/offline-backup.js"></script>
+<script src="js/admin-supabase.js"></script>
+
 </body>
 </html>
             
